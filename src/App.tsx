@@ -1,9 +1,9 @@
-import { colors } from "./shared";
+import Navigation from "./components/navigation/Navigation";
 
 const App = () => {
   return (
     <div>
-      <h1 style={{ color: `${colors.red}` }}>Hello World</h1>
+      <Navigation />
     </div>
   );
 };
