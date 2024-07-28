@@ -1,16 +1,29 @@
 // import React, { useState } from "react";
 
+import {
+  Divider,
+  NavigationContainer,
+  NavigationListContainer,
+  NavigationListItem,
+  NavigationLogoContainer,
+  NavigationLogoText,
+} from "./Navigation.style";
+
 const Navigation = () => {
   return (
-    <div>
-      <p>Harry</p>
-      <ul>
-        <li>About</li>
-        <li>Projects</li>
-        <li>Github</li>
-        <li>linkedIn</li>
-      </ul>
-    </div>
+    <NavigationContainer>
+      <NavigationLogoContainer>
+        <NavigationLogoText>Harry Smith</NavigationLogoText>
+        <Divider />
+      </NavigationLogoContainer>
+
+      <NavigationListContainer>
+        <NavigationListItem>About</NavigationListItem>
+        <NavigationListItem>Projects</NavigationListItem>
+        <NavigationListItem>Github</NavigationListItem>
+        <NavigationListItem>LinkedIn</NavigationListItem>
+      </NavigationListContainer>
+    </NavigationContainer>
   );
 };
 
