@@ -5,24 +5,33 @@ import {
   NavigationContainer,
   NavigationListContainer,
   NavigationListItem,
-  NavigationLogoContainer,
+  NavigationTextContainer,
   NavigationLogoText,
+  NavigationLogoContainer,
+  NavigationLogo,
+  NavigationWrapper,
 } from "./Navigation.style";
+
+import LogoImage from "../../images/image0.jpeg";
 
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <NavigationLogoContainer>
-        <NavigationLogoText>Harry Smith</NavigationLogoText>
-        <Divider />
-      </NavigationLogoContainer>
+      <NavigationWrapper>
+        <NavigationLogoContainer>
+          <NavigationLogo src={LogoImage} />
+        </NavigationLogoContainer>
 
-      <NavigationListContainer>
-        <NavigationListItem>About</NavigationListItem>
-        <NavigationListItem>Projects</NavigationListItem>
-        <NavigationListItem>Github</NavigationListItem>
-        <NavigationListItem>LinkedIn</NavigationListItem>
-      </NavigationListContainer>
+        <NavigationTextContainer>
+          <NavigationLogoText>Harry Smith</NavigationLogoText>
+          <NavigationListContainer>
+            <NavigationListItem>About</NavigationListItem>
+            <NavigationListItem>Projects</NavigationListItem>
+            <NavigationListItem>Github</NavigationListItem>
+            <NavigationListItem>LinkedIn</NavigationListItem>
+          </NavigationListContainer>
+        </NavigationTextContainer>
+      </NavigationWrapper>
     </NavigationContainer>
   );
 };

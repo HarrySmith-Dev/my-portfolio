@@ -2,13 +2,26 @@ import { styled } from "styled-components";
 import { colors } from "../../shared";
 
 export const NavigationContainer = styled.div`
+  margin-top: 100px;
+  margin: 70px auto 0 auto;
+  width: 700px;
+`;
+
+export const NavigationWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
 `;
 
 export const NavigationLogoContainer = styled.div`
+  display: flex;
+`;
+
+export const NavigationLogo = styled.img`
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+`;
+
+export const NavigationTextContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -22,6 +35,7 @@ export const NavigationLogoText = styled.p`
 
   @media (min-width: 1024px) {
     font-size: 30px;
+    margin-bottom: 30px;
   }
 `;
 
