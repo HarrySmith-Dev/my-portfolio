@@ -6,6 +6,7 @@ export const NavigationContainer = styled.div`
   margin-top: 100px;
   margin: 70px auto 0 auto;
   width: 700px;
+  background-color: ${colors.lightBlack};
 `;
 
 export const NavigationWrapper = styled.div`

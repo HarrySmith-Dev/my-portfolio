@@ -1,11 +1,11 @@
 import React from "react";
 
-import Navigation from "./components/navigation/Navigation";
+import TopNavigation from "./components/navigation/TopNavigation";
 
 const App = () => (
-    <div>
-      <Navigation />
-    </div>
-  );
+  <div>
+    <TopNavigation />
+  </div>
+);
 
 export default App;

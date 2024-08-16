@@ -1,6 +1,5 @@
 import React from "react";
 
-import LogoImage from "../../images/image0.jpeg";
 import {
   NavigationContainer,
   NavigationListContainer,
@@ -12,11 +11,11 @@ import {
   NavigationWrapper,
 } from "./Navigation.style";
 
-const Navigation = () => (
+const TopNavigation = () => (
   <NavigationContainer>
     <NavigationWrapper>
       <NavigationLogoContainer>
-        <NavigationLogo src={LogoImage} />
+        <NavigationLogo />
       </NavigationLogoContainer>
 
       <NavigationTextContainer>
@@ -32,4 +31,4 @@ const Navigation = () => (
   </NavigationContainer>
 );
 
-export default Navigation;
+export default TopNavigation;
