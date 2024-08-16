@@ -1,0 +1,18 @@
+{
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components",
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": ["stylelint-order", "stylelint-prettier"],
+  "rules": {
+    "prettier/prettier": [true, { "singleQuote": true }],
+    "string-quotes": "single",
+    "value-keyword-case": null,
+    "declaration-empty-line-before": null,
+    "declaration-colon-newline-after": null,
+    "keyframes-name-pattern": null,
+    "value-list-comma-newline-after": null
+  }
+}
