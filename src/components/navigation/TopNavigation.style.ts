@@ -2,11 +2,14 @@ import { styled } from "styled-components";
 
 import { colors } from "../../shared";
 
-export const NavigationContainer = styled.div`
-  margin-top: 100px;
-  margin: 70px auto 0 auto;
-  width: 700px;
+export const NavigationContainer = styled.nav`
+  width: 100%;
   background-color: ${colors.lightBlack};
+
+  @media (min-width: 1024px) {
+    z-index: 1000;
+    position: fixed;
+  }
 `;
 
 export const NavigationWrapper = styled.div`
