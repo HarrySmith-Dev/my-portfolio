@@ -1,54 +1,35 @@
+import React from "react";
+
+import LogoImage from "../../images/image0.jpeg";
 import {
-  Divider,
   NavigationContainer,
   NavigationListContainer,
   NavigationListItem,
-  NavigationTextContainer,
-  NavigationLogoText,
-  NavigationLogoContainer,
   NavigationLogo,
+  NavigationLogoContainer,
+  NavigationLogoText,
+  NavigationTextContainer,
   NavigationWrapper,
-  MobileNavigationContainer,
-  MobileNavigationWrapper,
 } from "./Navigation.style";
 
-import LogoImage from "../../images/image0.jpeg";
-import { useIsMobile } from "../../hooks/useIsMobile";
+const Navigation = () => (
+  <NavigationContainer>
+    <NavigationWrapper>
+      <NavigationLogoContainer>
+        <NavigationLogo src={LogoImage} />
+      </NavigationLogoContainer>
 
-const Navigation = () => {
-  const isMobile = useIsMobile();
-
-  return (
-    <NavigationContainer>
-      <NavigationWrapper>
-        <NavigationLogoContainer>
-          <NavigationLogo src={LogoImage} />
-        </NavigationLogoContainer>
-
-        <NavigationTextContainer>
-          <NavigationLogoText>Harry Smith</NavigationLogoText>
-          <Divider />
-          {isMobile ? (
-            <MobileNavigationContainer>
-              <MobileNavigationWrapper>
-                <NavigationListItem>About</NavigationListItem>
-                <NavigationListItem>Projects</NavigationListItem>
-                <NavigationListItem>Github</NavigationListItem>
-                <NavigationListItem>LinkedIn</NavigationListItem>
-              </MobileNavigationWrapper>
-            </MobileNavigationContainer>
-          ) : (
-            <NavigationListContainer>
-              <NavigationListItem>About</NavigationListItem>
-              <NavigationListItem>Projects</NavigationListItem>
-              <NavigationListItem>Github</NavigationListItem>
-              <NavigationListItem>LinkedIn</NavigationListItem>
-            </NavigationListContainer>
-          )}
-        </NavigationTextContainer>
-      </NavigationWrapper>
-    </NavigationContainer>
-  );
-};
+      <NavigationTextContainer>
+        <NavigationLogoText>Harry Smith</NavigationLogoText>
+        <NavigationListContainer>
+          <NavigationListItem>About</NavigationListItem>
+          <NavigationListItem>Projects</NavigationListItem>
+          <NavigationListItem>Github</NavigationListItem>
+          <NavigationListItem>LinkedIn</NavigationListItem>
+        </NavigationListContainer>
+      </NavigationTextContainer>
+    </NavigationWrapper>
+  </NavigationContainer>
+);
 
 export default Navigation;

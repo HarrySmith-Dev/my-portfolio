@@ -93,6 +93,7 @@
     },
     "jest": {
       "version": "detect"
-    }
+    },
+    "include": ["custom.d.ts"]
   }
 }

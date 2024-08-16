@@ -1,11 +1,11 @@
+import React from "react";
+
 import Navigation from "./components/navigation/Navigation";
 
-const App = () => {
-  return (
+const App = () => (
     <div>
       <Navigation />
     </div>
   );
-};
 
 export default App;
