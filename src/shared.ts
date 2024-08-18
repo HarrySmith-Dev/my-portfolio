@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const colors = {
   white: "#FFFFFF",
+  offWhite: "#F0F3FA",
   black: "#000000",
-  lightBlack: "#1E1E1E",
   red: "#FF0000",
   charcoal: "#1E1E1E",
-  darkGray: "#A9A9A9",
-  lightBlue: "#6495ED",
+  darkGray: "#64748b",
+  lightBlue: "#0285C7",
 };
 
 export const Placeholder = styled.div`
