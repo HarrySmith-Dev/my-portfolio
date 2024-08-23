@@ -7,8 +7,17 @@ import TopNavigation from "./components/navigation/TopNavigation";
 import Home from "./pages/home/Home";
 
 const BodyContainer = styled.div`
-  max-width: 1024px;
-  margin: 70px auto 0;
+  max-width: 390px;
+  margin: 50px auto 0;
+
+  @media (min-width: 768px) {
+    max-width: 768px;
+    margin-top: 70px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+  }
 `;
 
 const App = () => (

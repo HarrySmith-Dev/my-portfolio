@@ -13,6 +13,7 @@ export const NavigationContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   height: 150px;
+  margin: 0 30px;
 
   @media (min-width: 768px) {
     align-items: normal;
@@ -22,6 +23,11 @@ export const NavigationContentWrapper = styled.div`
 export const NavigationLogoContainer = styled(Link)`
   display: flex;
   text-decoration: none;
+  justify-content: center;
+
+  @media (min-width: 1024px) {
+    justify-content: normal;
+  }
 `;
 
 // export const NavigationLogo = styled(LogoIcon)`
@@ -31,11 +37,12 @@ export const NavigationLogoContainer = styled(Link)`
 //   margin-right: 50px;
 // `;
 
-export const NavigationLogoText = styled.p`
+export const NavigationLogoText = styled.h1`
   margin: 0;
   font-size: 25px;
   font-family: Jost, sans-serif;
-  color: ${colors.black};
+  color: ${colors.gray3};
+  padding: 0;
 `;
 
 export const NavigationLinksContainer = styled.ul`
@@ -74,7 +81,7 @@ export const NavigationLabel = styled.p`
   line-height: normal;
   cursor: pointer;
   margin: 0;
-  color: ${colors.darkGray};
+  color: ${colors.gray1};
 
   &:hover {
     color: ${colors.lightBlue};
