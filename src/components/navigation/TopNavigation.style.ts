@@ -1,99 +1,89 @@
+import { Link } from "react-router-dom";
+
 import { styled } from "styled-components";
 
 import { colors } from "../../shared";
 
 export const NavigationContainer = styled.nav`
   width: 100%;
-  background-color: ${colors.lightBlack};
-
-  @media (min-width: 1024px) {
-    z-index: 1000;
-    position: fixed;
-  }
 `;
 
-export const NavigationWrapper = styled.div`
+export const NavigationContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 150px;
+  margin: 0 30px;
 
   @media (min-width: 768px) {
-    flex-direction: row;
     align-items: normal;
   }
 `;
 
-export const NavigationLogoContainer = styled.div`
+export const NavigationLogoContainer = styled(Link)`
   display: flex;
-`;
-
-export const NavigationLogo = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-`;
-
-export const NavigationTextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  text-decoration: none;
   justify-content: center;
+
+  @media (min-width: 1024px) {
+    justify-content: normal;
+  }
 `;
 
-export const NavigationLogoText = styled.p`
-  cursor: pointer;
+// export const NavigationLogo = styled(LogoIcon)`
+//   width: 150px;
+//   height: 150px;
+//   border-radius: 50%;
+//   margin-right: 50px;
+// `;
+
+export const NavigationLogoText = styled.h1`
   margin: 0;
-  color: ${colors.white};
   font-size: 25px;
   font-family: Jost, sans-serif;
+  color: ${colors.gray3};
+  padding: 0;
+`;
 
-  @media (min-width: 768px) {
-    font-size: 30px;
-  }
+export const NavigationLinksContainer = styled.ul`
+  display: none;
 
   @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 50px 0 0;
   }
 `;
 
-export const Divider = styled.div`
-  border-top: 8px solid ${colors.lightBlue};
-  border-radius: 5px;
-  width: 46%;
-  margin: 10px 0 20px 0;
+export const NavigationLinksWrapper = styled.li`
+  text-decoration: none;
 
-  @media (min-width: 768px) {
-    width: 13%;
+  &:not(:first-child) {
+    margin: 0 0 0 20px;
   }
 `;
 
-export const NavigationListContainer = styled.ul`
-  display: flex;
-  margin-left: 0;
-`;
-
-export const MobileNavigationContainer = styled.div`
-  position: fixed;
-  bottom: 0;
-  right: 55px;
-`;
-
-export const MobileNavigationWrapper = styled.ul`
+export const NavigationLinks = styled(Link)`
   display: flex;
   align-items: center;
+  margin-right: 40px;
+  text-decoration: none;
+  height: 24px;
 `;
 
-export const NavigationListItem = styled.li`
-  color: ${colors.darkGray};
-  list-style: none;
-  cursor: pointer;
+export const NavigationLabel = styled.p`
+  font-family: Jost, sans-serif;
   font-size: 20px;
-  margin: 0 60px 0 0;
+  letter-spacing: 0;
+  line-height: normal;
+  cursor: pointer;
+  margin: 0;
+  color: ${colors.gray1};
 
   &:hover {
-    color: ${colors.white};
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 25px;
-    margin: 0 40px 0 0;
+    color: ${colors.lightBlue};
   }
 `;
