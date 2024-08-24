@@ -2,10 +2,16 @@ import { Link } from "react-router-dom";
 
 import { styled } from "styled-components";
 
+import LogoIcon from "../../../assets/images/image0.png";
 import { colors } from "../../shared";
 
 export const NavigationContainer = styled.nav`
-  width: 100%;
+  margin: 50px auto 0;
+
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+    margin-top: 70px;
+  }
 `;
 
 export const NavigationContentWrapper = styled.div`
@@ -30,12 +36,13 @@ export const NavigationLogoContainer = styled(Link)`
   }
 `;
 
-// export const NavigationLogo = styled(LogoIcon)`
-//   width: 150px;
-//   height: 150px;
-//   border-radius: 50%;
-//   margin-right: 50px;
-// `;
+export const NavigationLogo = styled.img`
+  ${LogoIcon};
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 50px;
+`;
 
 export const NavigationLogoText = styled.h1`
   margin: 0;

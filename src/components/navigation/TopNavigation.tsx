@@ -7,6 +7,7 @@ import {
   NavigationLinks,
   NavigationLinksContainer,
   NavigationLinksWrapper,
+  NavigationLogo,
   NavigationLogoContainer,
   NavigationLogoText,
 } from "./TopNavigation.style";
@@ -36,6 +37,7 @@ const TopNavigation = () => (
     <NavigationContainer>
       <NavigationContentWrapper>
         <NavigationLogoContainer to="/">
+          <NavigationLogo />
           <NavigationLogoText>Harry Smith</NavigationLogoText>
         </NavigationLogoContainer>
         <NavigationLinksContainer>

@@ -1,7 +1,9 @@
 import React, { ReactNode } from "react";
 
 import {
+  AboutCardBackgroundContainer,
   AboutCardContainer,
+  AboutCardContentWrapper,
   AboutCardHeading,
   AboutCardLink,
   AboutCardSpan,
@@ -26,15 +28,27 @@ const aboutCardData: AboutCardData[] = [
     text: (
       <>
         <AboutCardText>
-          I&apos;m from Milton Keynes(UK) and am currently a Junior Software
+          I&apos;m from Milton Keynes, UK and am currently a Junior Software
           Engineer at an InsurTech company.
         </AboutCardText>
         <AboutCardText>
           Check out my{" "}
-          <AboutCardLink href="/" rel="noreferrer" target="_blank">
+          <AboutCardLink
+            href="https://github.com/HarrySmith-Dev/"
+            rel="noreferrer"
+            target="_blank"
+          >
             GitHub
           </AboutCardLink>{" "}
-          and <AboutCardLink href="/">LinkedIn</AboutCardLink>.
+          and{" "}
+          <AboutCardLink
+            href="https://www.linkedin.com/in/harry-smith-software-developer/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            LinkedIn
+          </AboutCardLink>
+          .
         </AboutCardText>
       </>
     ),
@@ -42,17 +56,19 @@ const aboutCardData: AboutCardData[] = [
 ];
 
 const AboutCard = () => (
-  <AboutCardContainer>
-    <div>
-      {aboutCardData.map(({ heading, subHeading, text }) => (
-        <div key={`${heading}`}>
-          <AboutCardHeading>{heading}</AboutCardHeading>
-          {subHeading}
-          {text}
-        </div>
-      ))}
-    </div>
-  </AboutCardContainer>
+  <AboutCardBackgroundContainer>
+    <AboutCardContainer>
+      <AboutCardContentWrapper>
+        {aboutCardData.map(({ heading, subHeading, text }) => (
+          <div key={`${heading}`}>
+            <AboutCardHeading>{heading}</AboutCardHeading>
+            {subHeading}
+            {text}
+          </div>
+        ))}
+      </AboutCardContentWrapper>
+    </AboutCardContainer>
+  </AboutCardBackgroundContainer>
 );
 
 export default AboutCard;
