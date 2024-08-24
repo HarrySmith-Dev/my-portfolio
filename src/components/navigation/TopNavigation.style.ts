@@ -39,10 +39,11 @@ export const NavigationLogoContainer = styled(Link)`
 
 export const NavigationLogoText = styled.h1`
   margin: 0;
-  font-size: 25px;
+  font-size: 30px;
   font-family: Jost, sans-serif;
   color: ${colors.gray3};
   padding: 0;
+  font-weight: 500;
 `;
 
 export const NavigationLinksContainer = styled.ul`
@@ -54,7 +55,7 @@ export const NavigationLinksContainer = styled.ul`
     list-style-type: none;
     cursor: pointer;
     padding: 0;
-    margin: 50px 0 0;
+    margin: 30px 0 0;
   }
 `;
 
@@ -69,7 +70,7 @@ export const NavigationLinksWrapper = styled.li`
 export const NavigationLinks = styled(Link)`
   display: flex;
   align-items: center;
-  margin-right: 40px;
+  margin-right: 20px;
   text-decoration: none;
   height: 24px;
 `;
