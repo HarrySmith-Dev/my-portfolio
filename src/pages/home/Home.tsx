@@ -1,8 +1,10 @@
 import React from "react";
 
+import AboutCard from "../../components/aboutCard/AboutCard";
+
 const Home = () => (
   <>
-    <h1>Homepage</h1>
+    <AboutCard />
     <p>This is the homepage</p>
   </>
 );

@@ -1,14 +1,18 @@
 import React from "react";
 
+import LogoIcon from "../../assets/NavImage.png";
 import {
   NavigationContainer,
   NavigationContentWrapper,
+  NavigationItemsContainer,
   NavigationLabel,
   NavigationLinks,
   NavigationLinksContainer,
   NavigationLinksWrapper,
+  NavigationLinkText,
+  NavigationLinkTextContainer,
+  NavigationLogo,
   NavigationLogoContainer,
-  NavigationLogoText,
 } from "./TopNavigation.style";
 
 type NavigationLinksData = {
@@ -36,17 +40,22 @@ const TopNavigation = () => (
     <NavigationContainer>
       <NavigationContentWrapper>
         <NavigationLogoContainer to="/">
-          <NavigationLogoText>Harry Smith</NavigationLogoText>
+          <NavigationLogo src={LogoIcon} />
         </NavigationLogoContainer>
-        <NavigationLinksContainer>
-          {navigationLinksData.map(({ url, label }) => (
-            <NavigationLinksWrapper key={`${label}-top-navigation`}>
-              <NavigationLinks to={url}>
-                <NavigationLabel>{label}</NavigationLabel>
-              </NavigationLinks>
-            </NavigationLinksWrapper>
-          ))}
-        </NavigationLinksContainer>
+        <NavigationItemsContainer>
+          <NavigationLinkTextContainer to="/">
+            <NavigationLinkText>Harry Smith</NavigationLinkText>
+          </NavigationLinkTextContainer>
+          <NavigationLinksContainer>
+            {navigationLinksData.map(({ url, label }) => (
+              <NavigationLinksWrapper key={`${label}-top-navigation`}>
+                <NavigationLinks to={url}>
+                  <NavigationLabel>{label}</NavigationLabel>
+                </NavigationLinks>
+              </NavigationLinksWrapper>
+            ))}
+          </NavigationLinksContainer>
+        </NavigationItemsContainer>
       </NavigationContentWrapper>
     </NavigationContainer>
   </header>

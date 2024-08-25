@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const colors = {
   white1: "#FFFFFF",
   white2: "#F0F3FA",
+  white3: "#D4D5D6",
 
   black1: "#000000",
   black2: "#1E1E1E",
