@@ -3,13 +3,15 @@ import React from "react";
 import {
   NavigationContainer,
   NavigationContentWrapper,
+  NavigationItemsContainer,
   NavigationLabel,
   NavigationLinks,
   NavigationLinksContainer,
   NavigationLinksWrapper,
+  NavigationLinkText,
+  NavigationLinkTextContainer,
   NavigationLogo,
   NavigationLogoContainer,
-  NavigationLogoText,
 } from "./TopNavigation.style";
 
 type NavigationLinksData = {
@@ -38,17 +40,21 @@ const TopNavigation = () => (
       <NavigationContentWrapper>
         <NavigationLogoContainer to="/">
           <NavigationLogo />
-          <NavigationLogoText>Harry Smith</NavigationLogoText>
         </NavigationLogoContainer>
-        <NavigationLinksContainer>
-          {navigationLinksData.map(({ url, label }) => (
-            <NavigationLinksWrapper key={`${label}-top-navigation`}>
-              <NavigationLinks to={url}>
-                <NavigationLabel>{label}</NavigationLabel>
-              </NavigationLinks>
-            </NavigationLinksWrapper>
-          ))}
-        </NavigationLinksContainer>
+        <NavigationItemsContainer>
+          <NavigationLinkTextContainer to="/">
+            <NavigationLinkText>Harry Smith</NavigationLinkText>
+          </NavigationLinkTextContainer>
+          <NavigationLinksContainer>
+            {navigationLinksData.map(({ url, label }) => (
+              <NavigationLinksWrapper key={`${label}-top-navigation`}>
+                <NavigationLinks to={url}>
+                  <NavigationLabel>{label}</NavigationLabel>
+                </NavigationLinks>
+              </NavigationLinksWrapper>
+            ))}
+          </NavigationLinksContainer>
+        </NavigationItemsContainer>
       </NavigationContentWrapper>
     </NavigationContainer>
   </header>

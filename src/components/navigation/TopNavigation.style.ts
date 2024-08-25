@@ -17,23 +17,20 @@ export const NavigationContainer = styled.nav`
 export const NavigationContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 150px;
-  margin: 0 30px;
+  margin: 0 30px 100px;
+  justify-content: center;
+  align-items: center;
 
-  @media (min-width: 768px) {
-    align-items: normal;
+  @media (min-width: 1024px) {
+    justify-content: normal;
+    flex-direction: row;
   }
 `;
 
 export const NavigationLogoContainer = styled(Link)`
   display: flex;
   text-decoration: none;
-  justify-content: center;
-
-  @media (min-width: 1024px) {
-    justify-content: normal;
-  }
 `;
 
 export const NavigationLogo = styled.img`
@@ -41,10 +38,26 @@ export const NavigationLogo = styled.img`
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin-right: 50px;
+  margin: 30px 0;
+
+  @media (min-width: 1024px) {
+    margin-right: 50px;
+  }
 `;
 
-export const NavigationLogoText = styled.h1`
+export const NavigationItemsContainer = styled.div`
+  display: flex;
+
+  @media (min-width: 1024px) {
+    flex-direction: column;
+  }
+`;
+
+export const NavigationLinkTextContainer = styled(Link)`
+  text-decoration: none;
+`;
+
+export const NavigationLinkText = styled.h1`
   margin: 0;
   font-size: 30px;
   font-family: Jost, sans-serif;
@@ -58,6 +71,7 @@ export const NavigationLinksContainer = styled.ul`
 
   @media (min-width: 1024px) {
     display: flex;
+    flex-direction: row;
     align-items: center;
     list-style-type: none;
     cursor: pointer;
