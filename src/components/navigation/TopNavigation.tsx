@@ -1,5 +1,6 @@
 import React from "react";
 
+import LogoIcon from "../../assets/NavImage.png";
 import {
   NavigationContainer,
   NavigationContentWrapper,
@@ -39,7 +40,7 @@ const TopNavigation = () => (
     <NavigationContainer>
       <NavigationContentWrapper>
         <NavigationLogoContainer to="/">
-          <NavigationLogo />
+          <NavigationLogo src={LogoIcon} />
         </NavigationLogoContainer>
         <NavigationItemsContainer>
           <NavigationLinkTextContainer to="/">
