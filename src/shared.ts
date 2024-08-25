@@ -14,6 +14,7 @@ export const colors = {
 
   lightBlue: "#0285C7",
   red: "#FF0000",
+  purple: "#8F75FF",
 };
 
 export const Placeholder = styled.div`

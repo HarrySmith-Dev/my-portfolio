@@ -1,16 +1,28 @@
 import React from "react";
 
+import {
+  FooterBackgroundContainer,
+  FooterContainer,
+  FooterLinks,
+  FooterText,
+  FooterTextContainer,
+} from "./Footer.style";
+
 const Footer = () => (
-  <footer
-    style={{
-      position: "sticky",
-      bottom: "0",
-      width: "100%",
-      textAlign: "center",
-    }}
-  >
-    <p>&copy; This is the footer</p>
-  </footer>
+  <FooterBackgroundContainer>
+    <FooterContainer>
+      <FooterTextContainer>
+        <FooterText>&copy; 2024 Harry Smith.</FooterText>
+        <FooterText>
+          Built with{" "}
+          <FooterLinks href="https://vitejs.dev/" $isPurple>
+            Vite
+          </FooterLinks>{" "}
+          and <FooterLinks href="https://react.dev/">React</FooterLinks>.
+        </FooterText>
+      </FooterTextContainer>
+    </FooterContainer>
+  </FooterBackgroundContainer>
 );
 
 export default Footer;
