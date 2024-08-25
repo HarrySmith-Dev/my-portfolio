@@ -11,10 +11,11 @@ export const AboutCardContainer = styled.section`
   border-radius: 20px;
   box-shadow: 0 20px 25px -5px ${colors.white3};
   width: 100%;
+  margin-bottom: 100px;
 
   @media (min-width: 1024px) {
     max-width: 1024px;
-    margin: 0 auto;
+    margin: 0 auto 100px;
   }
 `;
 
@@ -23,7 +24,7 @@ export const AboutCardContentWrapper = styled.div`
 `;
 
 export const AboutCardHeading = styled.h2`
-  font-size: 25px;
+  font-size: 35px;
   font-family: Jost, sans-serif;
   line-height: normal;
   letter-spacing: 0;

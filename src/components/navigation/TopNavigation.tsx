@@ -1,5 +1,7 @@
 import React from "react";
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import LogoIcon from "../../assets/NavImage.png";
 import {
   NavigationContainer,
