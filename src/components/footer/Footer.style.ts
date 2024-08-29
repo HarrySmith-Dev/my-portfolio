@@ -20,7 +20,7 @@ export const FooterContainer = styled.div`
 
 export const FooterTextContainer = styled.div`
   display: flex;
-  margin-top: 30px;
+  margin: 30px 0 100px;
 `;
 
 export const FooterText = styled.p`
