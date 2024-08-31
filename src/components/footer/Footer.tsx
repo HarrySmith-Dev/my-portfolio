@@ -15,10 +15,10 @@ const Footer = () => (
         <FooterText>&copy; 2024 Harry Smith.</FooterText>
         <FooterText>
           Built with{" "}
-          <FooterLinks href="https://vitejs.dev/" $isPurple>
+          <FooterLinks target="_blank" href="https://vitejs.dev/" $isPurple>
             Vite
           </FooterLinks>{" "}
-          and <FooterLinks href="https://react.dev/">React</FooterLinks>.
+          and <FooterLinks target="_blank" href="https://react.dev/">React</FooterLinks>.
         </FooterText>
       </FooterTextContainer>
     </FooterContainer>
