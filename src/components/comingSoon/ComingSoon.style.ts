@@ -20,13 +20,12 @@ export const ComingSoonIcon = styled.img`
 
 export const ComingSoonTitle = styled.h1`
     font-family: Jost, sans-serif;
-    font-size: 35px;
+    font-size: 25px;
     line-height: normal;
     letter-spacing: 0;
     margin: 0;
 
     @media (min-width:768px){
         font-size: 50px;
-
     }
 `;
