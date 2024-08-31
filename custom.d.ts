@@ -1,11 +1,4 @@
-declare module "*.svg" {
-  global {
-    type Svg = React.FunctionComponent<React.SVGAttributes<SVGElement>>;
-  }
-  const content: Svg;
-  export default content;
-}
-
+declare module "*.svg" 
 declare module "*.eot";
 declare module "*.woff";
 declare module "*.woff2";
