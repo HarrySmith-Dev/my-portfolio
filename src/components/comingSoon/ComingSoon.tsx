@@ -12,7 +12,11 @@ import {
 const ComingSoon = () => (
    <ComingSoonContainer>
       <ComingSoonIcon src={ProjectsIcon}></ComingSoonIcon>
-      <ComingSoonTitle>Coming soon!</ComingSoonTitle>
+      <ComingSoonTitle>
+         Coming soon! {window.location.pathname === '/about' && '/About'}
+         {window.location.pathname === '/projects' && '/Projects'}
+         {window.location.pathname === '/contact' && '/Contact'}
+      </ComingSoonTitle>
    </ComingSoonContainer>
 )
 

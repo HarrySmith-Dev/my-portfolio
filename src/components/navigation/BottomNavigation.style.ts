@@ -33,21 +33,18 @@ export const BottomNavigationListItem = styled.li`
 }
 `;
 
-export const BottomNavigationContentContainer = styled.div`
+export const BottomNavigationContentContainer = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none;
 `;
 
-export const BottomNavigationLinks = styled(Link)`
-  text-decoration: none;
+export const BottomNavigationLinks = styled.p`
   font-size: 18px;
   font-family: Jost, sans-serif;
   color: ${colors.gray2};
-
-  &:hover {
-    color: ${colors.lightBlue};
-  }
+  margin: 0;
 `;
 
 export const BottomNavigationIcon = styled.img`

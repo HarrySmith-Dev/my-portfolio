@@ -50,11 +50,9 @@ const BottomNavigation = () => (
       <BottomNavigationLinksContainer>
          {bottomNavigationLinksData.map(({ url, label, icon }) => (
             <BottomNavigationListItem key={`${label}-bottom-navigation`}>
-               <BottomNavigationContentContainer>
+               <BottomNavigationContentContainer to={url}>
                   {icon}
-                  <BottomNavigationLinks to={url}>
-                     {label}
-                  </BottomNavigationLinks>
+                  <BottomNavigationLinks>{label}</BottomNavigationLinks>
                </BottomNavigationContentContainer>
             </BottomNavigationListItem>
          ))}
