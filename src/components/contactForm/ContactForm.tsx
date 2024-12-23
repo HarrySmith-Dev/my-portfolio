@@ -33,14 +33,14 @@ const ContactForm: React.FC = () => {
    } = useForm<FormInput>()
 
    useEffect(() => {
-      const apiKey = import.meta.env.VITE_API_KEY
-      emailjs.init(apiKey)
+      emailjs.init(import.meta.env.VITE_API_KEY)
    }, [])
 
    const onSubmit = async (data: FormInput) => {
       try {
          const serviceId = import.meta.env.VITE_SERVICE_ID
          const templateId = import.meta.env.VITE_TEMPLATE_ID
+         const apiKey = import.meta.env.VITE_API_KEY
 
          const templateParams: Record<string, string> = {
             name: data.name,
@@ -48,7 +48,7 @@ const ContactForm: React.FC = () => {
             message: data.message,
          }
 
-         await emailjs.send(serviceId, templateId, templateParams)
+         await emailjs.send(serviceId, templateId, templateParams, apiKey)
 
          setFeedback('Message sent successfully!')
          reset()
