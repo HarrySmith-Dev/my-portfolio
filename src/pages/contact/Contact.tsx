@@ -1,10 +1,10 @@
 import React from 'react'
 
-import ContactForm from '../../components/contactForm/ContactForm'
+import ComingSoon from '../../components/comingSoon/ComingSoon'
 
 const Contact = () => (
    <>
-      <ContactForm />
+      <ComingSoon />
    </>
 )
 
