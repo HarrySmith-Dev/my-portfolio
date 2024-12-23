@@ -1,14 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+
 import emailjs from 'emailjs-com'
 
-interface FormInput {
+import {
+   ContactFormButton,
+   ContactFormContainer,
+   ContactFormField,
+   ContactFormFieldWrapper,
+   ContactFormInput,
+   ContactFormLabel,
+   ContactFormLabelSpan,
+   ContactFormTextArea,
+   ContactText,
+   Form,
+} from './ContactForm.style'
+
+type FormInput = {
    name: string
    email: string
    message: string
 }
 
 const ContactForm: React.FC = () => {
+   const [feedback, setFeedback] = useState<string | null>('')
+
    const {
       register,
       handleSubmit,
@@ -34,56 +50,70 @@ const ContactForm: React.FC = () => {
 
          await emailjs.send(serviceId, templateId, templateParams)
 
-         alert('Message sent successfully!')
+         setFeedback('Message sent successfully!')
          reset()
       } catch (error) {
          console.error('Failed to send message:', error)
-         alert('Failed to send message. Please try again.')
+         setFeedback('Failed to send message. Please try again.')
       }
    }
 
    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-         <div>
-            <label htmlFor="name">Name</label>
-            <input
-               id="name"
-               type="text"
-               {...register('name', { required: 'Name is required' })}
-               disabled={isSubmitting}
-            />
-            {errors.name && <p>{errors.name.message}</p>}
-         </div>
+      <ContactFormContainer>
+         <ContactText>Please fill in the form below</ContactText>
+         <Form onSubmit={handleSubmit(onSubmit)}>
+            <ContactFormFieldWrapper>
+               <ContactFormField>
+                  <ContactFormLabel htmlFor="name">
+                     Name <ContactFormLabelSpan>*</ContactFormLabelSpan>
+                  </ContactFormLabel>
+                  <ContactFormInput
+                     id="name"
+                     type="text"
+                     {...register('name', { required: 'Name is required' })}
+                     disabled={isSubmitting}
+                  />
+                  {errors.name && <p>{errors.name.message}</p>}
+               </ContactFormField>
 
-         <div>
-            <label htmlFor="email">Email</label>
-            <input
-               id="email"
-               type="email"
-               {...register('email', {
-                  required: 'Email is required',
-                  pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-               })}
-               disabled={isSubmitting}
-            />
-            {errors.email && <p>{errors.email.message}</p>}
-         </div>
+               <ContactFormField>
+                  <ContactFormLabel htmlFor="email">
+                     Email <ContactFormLabelSpan>*</ContactFormLabelSpan>
+                  </ContactFormLabel>
+                  <ContactFormInput
+                     id="email"
+                     type="email"
+                     {...register('email', {
+                        required: 'Email is required',
+                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                     })}
+                     disabled={isSubmitting}
+                  />
+                  {errors.email && <p>{errors.email.message}</p>}
+               </ContactFormField>
+            </ContactFormFieldWrapper>
 
-         <div>
-            <label htmlFor="message">Message</label>
-            <textarea
-               id="message"
-               {...register('message', { required: 'Message is required' })}
-               disabled={isSubmitting}
-            />
-            {errors.message && <p>{errors.message.message}</p>}
-         </div>
+            <ContactFormField>
+               <ContactFormLabel htmlFor="message">
+                  Message <ContactFormLabelSpan>*</ContactFormLabelSpan>
+               </ContactFormLabel>
+               <ContactFormTextArea
+                  id="message"
+                  {...register('message', {
+                     required: 'Message is required',
+                  })}
+                  disabled={isSubmitting}
+               />
+               {errors.message && <p>{errors.message.message}</p>}
+            </ContactFormField>
 
-         <button type="submit" disabled={isSubmitting}>
-            Send
-         </button>
-         {isSubmitting && <p>Submitting...</p>}
-      </form>
+            <ContactFormButton type="submit" disabled={isSubmitting}>
+               Send Message
+            </ContactFormButton>
+            {isSubmitting && <p>Submitting...</p>}
+            {feedback && <p>{feedback}</p>}
+         </Form>
+      </ContactFormContainer>
    )
 }
 
