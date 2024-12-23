@@ -4,7 +4,6 @@ interface ImportMetaEnv {
    readonly VITE_API_KEY: string
    readonly VITE_SERVICE_ID: string
    readonly VITE_TEMPLATE_ID: string
-   // more env variables...
 }
 
 interface ImportMeta {
