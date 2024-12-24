@@ -128,7 +128,7 @@ const ContactForm: React.FC = () => {
             <ContactFormButton type="submit" disabled={isSubmitting}>
                Send Message
             </ContactFormButton>
-            {!isSubmitting && <p>Submitting...</p>}
+            {isSubmitting && <p>Submitting...</p>}
             {feedback && <p aria-live="polite">{feedback}</p>}
          </Form>
       </ContactFormContainer>
