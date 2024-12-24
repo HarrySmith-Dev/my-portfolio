@@ -6,6 +6,7 @@ import emailjs from 'emailjs-com'
 import {
    ContactFormButton,
    ContactFormContainer,
+   ContactFormErrorText,
    ContactFormField,
    ContactFormFieldWrapper,
    ContactFormInput,
@@ -54,7 +55,7 @@ const ContactForm: React.FC = () => {
          reset()
       } catch (error) {
          console.error('Failed to send message:', error)
-         setFeedback('Failed to send message. Please try again.')
+         setFeedback('An unexpected error occured. Please try again.')
       }
    }
 
@@ -70,10 +71,17 @@ const ContactForm: React.FC = () => {
                   <ContactFormInput
                      id="name"
                      type="text"
-                     {...register('name', { required: 'Name is required' })}
+                     {...register('name', {
+                        required: 'Please enter your name',
+                     })}
                      disabled={isSubmitting}
+                     $hasError={!!errors.name}
                   />
-                  {errors.name && <p>{errors.name.message}</p>}
+                  {errors.name && (
+                     <ContactFormErrorText $hasError={!!errors.name}>
+                        {errors.name.message}
+                     </ContactFormErrorText>
+                  )}
                </ContactFormField>
 
                <ContactFormField>
@@ -84,12 +92,17 @@ const ContactForm: React.FC = () => {
                      id="email"
                      type="email"
                      {...register('email', {
-                        required: 'Email is required',
+                        required: 'Please enter a valid email address',
                         pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                      })}
                      disabled={isSubmitting}
+                     $hasError={!!errors.email}
                   />
-                  {errors.email && <p>{errors.email.message}</p>}
+                  {errors.email && (
+                     <ContactFormErrorText $hasError={!!errors.email}>
+                        {errors.email.message}
+                     </ContactFormErrorText>
+                  )}
                </ContactFormField>
             </ContactFormFieldWrapper>
 
@@ -100,18 +113,23 @@ const ContactForm: React.FC = () => {
                <ContactFormTextArea
                   id="message"
                   {...register('message', {
-                     required: 'Message is required',
+                     required: 'Please enter a message',
                   })}
                   disabled={isSubmitting}
+                  $hasError={!!errors.message}
                />
-               {errors.message && <p>{errors.message.message}</p>}
+               {errors.message && (
+                  <ContactFormErrorText $hasError={!!errors.message}>
+                     {errors.message.message}
+                  </ContactFormErrorText>
+               )}
             </ContactFormField>
 
             <ContactFormButton type="submit" disabled={isSubmitting}>
                Send Message
             </ContactFormButton>
-            {isSubmitting && <p>Submitting...</p>}
-            {feedback && <p>{feedback}</p>}
+            {!isSubmitting && <p>Submitting...</p>}
+            {feedback && <p aria-live="polite">{feedback}</p>}
          </Form>
       </ContactFormContainer>
    )

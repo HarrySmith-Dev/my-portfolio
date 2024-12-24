@@ -53,6 +53,10 @@ export const ContactFormLabel = styled.label`
    color: ${colors.gray3};
    margin-bottom: 10px;
    font-size: 16px;
+
+   @media (min-width: 768px) {
+      font-size: 18px;
+   }
 `
 
 export const ContactFormLabelSpan = styled.span`
@@ -61,8 +65,8 @@ export const ContactFormLabelSpan = styled.span`
    font-size: 14px;
 `
 
-export const ContactFormInput = styled.input`
-   margin-bottom: 25px;
+export const ContactFormInput = styled.input<{ $hasError?: boolean }>`
+   margin: ${({ $hasError }) => ($hasError ? '0' : '0 0 30px 0')};
    padding: 5px;
    height: 43px;
    border-radius: 10px;
@@ -84,11 +88,11 @@ export const ContactFormInput = styled.input`
    }
 `
 
-export const ContactFormTextArea = styled.textarea`
+export const ContactFormTextArea = styled.textarea<{ $hasError?: boolean }>`
    font-size: 16px;
    font-family: Jost, sans-serif;
    padding: 5px;
-   margin-bottom: 30px;
+   margin: ${({ $hasError }) => ($hasError ? '0' : '0 0 30px 0')};
    min-height: 160px;
    border-radius: 10px;
    border: 1px solid ${colors.gray4};
@@ -106,6 +110,20 @@ export const ContactFormTextArea = styled.textarea`
    @media (min-width: 768px) {
       width: 675px;
       padding: 8px;
+      font-size: 18px;
+   }
+`
+export const ContactFormErrorText = styled.p<{ $hasError?: boolean }>`
+   font-size: 14px;
+   font-family: Jost, sans-serif;
+   color: ${colors.red};
+   font-weight: 400;
+   margin: ${({ $hasError }) => ($hasError ? '5px 0 25px 0 ' : '0')};
+
+   @media (min-width: 768px) {
+      font-size: 16px;
+      margin: ${({ $hasError }) =>
+         $hasError ? '5px 0 20px 0' : '5px 0 40px 0'};
    }
 `
 
@@ -124,5 +142,6 @@ export const ContactFormButton = styled.button`
 
    @media (min-width: 768px) {
       width: 300px;
+      font-size: 16px;
    }
 `
