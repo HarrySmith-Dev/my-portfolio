@@ -31,21 +31,21 @@ type FormInput = {
 
 const ContactForm: React.FC = () => {
    const [feedback, setFeedback] = useState<ReactNode | null>(null)
-   const [open, setOpen] = useState(false)
+   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
 
    const {
       register,
       handleSubmit,
-      formState: { errors, isSubmitting },
+      formState: { errors, isSubmitting, isValid },
       reset,
-   } = useForm<FormInput>()
+   } = useForm<FormInput>({ mode: 'onChange' })
 
    useEffect(() => {
       emailjs.init(import.meta.env.VITE_API_KEY)
    }, [])
 
    const closeFeedback = () => {
-      setOpen(false)
+      setIsFeedbackOpen(false)
       setFeedback(null)
    }
 
@@ -80,37 +80,32 @@ const ContactForm: React.FC = () => {
                </FeedbackWrapper>
             </FeedbackContainer>
          )
-         setOpen(true)
+         setIsFeedbackOpen(true)
          reset()
       } catch (error) {
          console.error('Failed to send message:', error)
-         setFeedback('An unexpected error occurred. Please try again.')
+         setFeedback(
+            <FeedbackContainer>
+               <FeedbackWrapper>
+                  <FeedbackHeader>Something went wrong</FeedbackHeader>
+                  <FeedbackText>
+                     Sorry, your message couldn’t be sent. Please try again
+                     later or email me directly.
+                  </FeedbackText>
+                  <ContactFormButton $isFeedback onClick={closeFeedback}>
+                     Close
+                  </ContactFormButton>
+               </FeedbackWrapper>
+            </FeedbackContainer>
+         )
       }
-   }
-
-   // Test function to simulate feedback
-   const testFeedback = () => {
-      setFeedback(
-         <FeedbackContainer>
-            <FeedbackWrapper>
-               <FeedbackHeader>Test Feedback</FeedbackHeader>
-               <FeedbackText>
-                  This is a simulated feedback message for testing purposes.
-               </FeedbackText>
-               <ContactFormButton onClick={closeFeedback} $isFeedback>
-                  Close
-               </ContactFormButton>
-            </FeedbackWrapper>
-         </FeedbackContainer>
-      )
-      setOpen(true)
    }
 
    return (
       <ContactFormBackgroundContainer>
-         {open && <FeedbackOverlay />}
+         {isFeedbackOpen && <FeedbackOverlay />}
 
-         <ContactFormContainer $isOpen={open}>
+         <ContactFormContainer $isOpen={isFeedbackOpen}>
             <ContactText>Please fill in the form below</ContactText>
             <Form onSubmit={handleSubmit(onSubmit)}>
                <ContactFormFieldWrapper>
@@ -124,7 +119,7 @@ const ContactForm: React.FC = () => {
                         {...register('name', {
                            required: 'Please enter your name',
                         })}
-                        disabled={isSubmitting || open}
+                        disabled={isSubmitting || isFeedbackOpen}
                         $hasError={!!errors.name}
                      />
                      {errors.name && (
@@ -145,7 +140,7 @@ const ContactForm: React.FC = () => {
                            required: 'Please enter a valid email address',
                            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                         })}
-                        disabled={isSubmitting || open}
+                        disabled={isSubmitting || isFeedbackOpen}
                         $hasError={!!errors.email}
                      />
                      {errors.email && (
@@ -165,7 +160,7 @@ const ContactForm: React.FC = () => {
                      {...register('message', {
                         required: 'Please enter a message',
                      })}
-                     disabled={isSubmitting || open}
+                     disabled={isSubmitting || isFeedbackOpen}
                      $hasError={!!errors.message}
                   />
                   {errors.message && (
@@ -175,30 +170,17 @@ const ContactForm: React.FC = () => {
                   )}
                </ContactFormField>
 
-               <ContactFormButton type="submit" disabled={isSubmitting || open}>
+               <ContactFormButton
+                  type="submit"
+                  disabled={isSubmitting || isFeedbackOpen || !isValid}
+               >
                   Send Message
                </ContactFormButton>
                {isSubmitting && <p>Submitting...</p>}
             </Form>
-
-            <button
-               type="button"
-               style={{
-                  marginTop: '20px',
-                  padding: '10px',
-                  backgroundColor: 'blue',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-               }}
-               onClick={testFeedback}
-            >
-               Test Feedback
-            </button>
          </ContactFormContainer>
 
-         {open && feedback}
+         {isFeedbackOpen && feedback}
       </ContactFormBackgroundContainer>
    )
 }

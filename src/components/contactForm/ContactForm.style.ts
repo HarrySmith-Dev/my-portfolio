@@ -132,7 +132,9 @@ export const ContactFormErrorText = styled.p<{ $hasError?: boolean }>`
    }
 `
 
-export const ContactFormButton = styled.button<{ $isFeedback?: boolean }>`
+export const ContactFormButton = styled.button<{
+   $isFeedback?: boolean
+}>`
    width: 100%;
    text-align: center;
    background-color: ${colors.lightBlue};
@@ -145,6 +147,11 @@ export const ContactFormButton = styled.button<{ $isFeedback?: boolean }>`
    font-family: Jost, sans-serif;
    font-weight: 600;
    cursor: pointer;
+
+   &:disabled {
+      opacity: 0.5;
+      cursor: default;
+   }
 
    @media (min-width: 768px) {
       width: 300px;
