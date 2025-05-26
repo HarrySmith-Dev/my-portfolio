@@ -155,7 +155,7 @@ const ContactForm: React.FC = () => {
                </ContactFormButton>
             </Form>
          </ContactFormContainer>
-         {!isSubmitting && (
+         {isSubmitting && (
             <Overlay>
                <LoaderContainer>
                   <Loader />
