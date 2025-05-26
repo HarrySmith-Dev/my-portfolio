@@ -1,6 +1,6 @@
 import emailjs from 'emailjs-com'
 
-import type { FormInput } from '../components/contactForm/ContactForm' // adjust import path
+import type { FormInput } from '../components/contactForm/ContactForm'
 
 // eslint-disable-next-line import/prefer-default-export
 export const sendContactEmail = async (data: FormInput) => {
