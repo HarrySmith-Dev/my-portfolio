@@ -160,14 +160,13 @@ export const ContactFormButton = styled.button<{
    }
 `
 
-export const FeedbackOverlay = styled.div`
+export const Overlay = styled.div`
    position: fixed;
    top: 0;
    left: 0;
    width: 100%;
    height: 100%;
-   background: ${colors.black1};
-   opacity: 0.5;
+   background: ${colors.black2};
    z-index: 10;
 `
 
@@ -198,25 +197,31 @@ export const FeedbackContainer = styled.div`
    }
 `
 
-export const FeedbackWrapper = styled.div`
+export const LoaderContainer = styled.div`
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
    display: flex;
-   flex-direction: column;
    align-items: center;
-   padding: 20px;
+   justify-content: center;
 `
 
-export const FeedbackHeader = styled.h3`
-   font-family: Jost, sans-serif;
-   font-size: 20px;
-   color: ${colors.gray3};
-   font-weight: 600;
-   margin: 10px 0;
-`
+export const Loader = styled.div`
+   border: 16px solid ${colors.white1};
+   border-radius: 50%;
+   border-top: 16px solid ${colors.lightBlue};
+   width: 120px;
+   height: 120px;
+   animation: spin 2s linear infinite;
 
-export const FeedbackText = styled.p`
-   font-family: Jost, sans-serif;
-   font-size: 18px;
-   color: ${colors.gray3};
-   font-weight: 400;
-   margin-bottom: 20px;
+   @keyframes spin {
+      0% {
+         transform: rotate(0deg);
+      }
+      100% {
+         transform: rotate(360deg);
+      }
+   }
 `

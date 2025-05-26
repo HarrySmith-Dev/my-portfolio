@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form'
 
 import emailjs from 'emailjs-com'
 
+import { sendContactEmail } from '../../utils/emailService'
+import ErrorFeedback from '../feedback/ErrorFeedback'
+import SuccessFeedback from '../feedback/SuccessFeedback'
 import {
    ContactFormBackgroundContainer,
    ContactFormButton,
@@ -16,14 +19,13 @@ import {
    ContactFormTextArea,
    ContactText,
    FeedbackContainer,
-   FeedbackHeader,
-   FeedbackOverlay,
-   FeedbackText,
-   FeedbackWrapper,
    Form,
+   Loader,
+   LoaderContainer,
+   Overlay,
 } from './ContactForm.style'
 
-type FormInput = {
+export type FormInput = {
    name: string
    email: string
    message: string
@@ -51,63 +53,38 @@ const ContactForm: React.FC = () => {
 
    const onSubmit = async (data: FormInput) => {
       try {
-         const serviceId = import.meta.env.VITE_SERVICE_ID
-         const templateId = import.meta.env.VITE_TEMPLATE_ID
-         const apiKey = import.meta.env.VITE_API_KEY
-
-         const templateParams: Record<string, string> = {
-            name: data.name,
-            email: data.email,
-            message: data.message,
-         }
-
-         await emailjs.send(serviceId, templateId, templateParams, apiKey)
-
+         sendContactEmail(data)
          setFeedback(
-            <FeedbackContainer>
-               <FeedbackWrapper>
-                  <FeedbackHeader>Speak soon!</FeedbackHeader>
-                  <FeedbackText>
-                     I&apos;ve received your message and will get back to you as
-                     soon as possible.
-                  </FeedbackText>
-                  <ContactFormButton
-                     $isFeedback
-                     onClick={() => closeFeedback()}
-                  >
-                     Close
-                  </ContactFormButton>
-               </FeedbackWrapper>
+            <FeedbackContainer aria-modal="true">
+               <SuccessFeedback onClose={closeFeedback} />
             </FeedbackContainer>
          )
          setIsFeedbackOpen(true)
          reset()
       } catch (error) {
-         console.error('Failed to send message:', error)
          setFeedback(
-            <FeedbackContainer>
-               <FeedbackWrapper>
-                  <FeedbackHeader>Something went wrong</FeedbackHeader>
-                  <FeedbackText>
-                     Sorry, your message couldn’t be sent. Please try again
-                     later or email me directly.
-                  </FeedbackText>
-                  <ContactFormButton $isFeedback onClick={closeFeedback}>
-                     Close
-                  </ContactFormButton>
-               </FeedbackWrapper>
+            <FeedbackContainer aria-modal="true">
+               <ErrorFeedback onClose={closeFeedback} />
             </FeedbackContainer>
          )
+         setIsFeedbackOpen(true)
       }
    }
 
    return (
       <ContactFormBackgroundContainer>
-         {isFeedbackOpen && <FeedbackOverlay />}
+         {isFeedbackOpen && <Overlay />}
 
-         <ContactFormContainer $isOpen={isFeedbackOpen}>
+         <ContactFormContainer
+            $isOpen={isFeedbackOpen}
+            aria-hidden={isSubmitting}
+         >
             <ContactText>Please fill in the form below</ContactText>
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form
+               onSubmit={handleSubmit(onSubmit)}
+               aria-busy={isSubmitting}
+               aria-live="polite"
+            >
                <ContactFormFieldWrapper>
                   <ContactFormField>
                      <ContactFormLabel htmlFor="name">
@@ -176,9 +153,15 @@ const ContactForm: React.FC = () => {
                >
                   Send Message
                </ContactFormButton>
-               {isSubmitting && <p>Submitting...</p>}
             </Form>
          </ContactFormContainer>
+         {!isSubmitting && (
+            <Overlay>
+               <LoaderContainer>
+                  <Loader />
+               </LoaderContainer>
+            </Overlay>
+         )}
 
          {isFeedbackOpen && feedback}
       </ContactFormBackgroundContainer>
