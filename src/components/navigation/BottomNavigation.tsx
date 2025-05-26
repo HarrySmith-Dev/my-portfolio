@@ -1,16 +1,8 @@
 import React from 'react'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import ContactIcon from '../../assets/ContactIcon.svg'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import HomeIcon from '../../assets/HomeIcon.svg'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import PersonIcon from '../../assets/PersonIcon.svg'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import ProjectsIcon from '../../assets/ProjectsIcon.svg'
 import { NavigationLinksData } from '../types/SharedTypes'
 import {
