@@ -1,5 +1,3 @@
-import styled from 'styled-components'
-
 export const colors = {
    white1: '#FFFFFF',
    white2: '#F0F3FA',
@@ -18,7 +16,3 @@ export const colors = {
    red: '#FF0000',
    purple: '#8F75FF',
 }
-
-export const Placeholder = styled.div`
-   padding: 0;
-`

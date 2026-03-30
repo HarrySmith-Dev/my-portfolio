@@ -1,23 +1,27 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import ProjectsIcon from '../../assets/ProjectsIcon.svg'
+import navigationLinksData from '../navigation/navigationLinks'
 import {
-   ComingSoonContainer,
-   ComingSoonIcon,
-   ComingSoonTitle,
-} from './ComingSoon.style'
+   comingSoonContainer,
+   comingSoonIcon,
+   comingSoonTitle,
+} from './ComingSoon.css'
 
-const ComingSoon = () => (
-   <ComingSoonContainer>
-      <ComingSoonIcon src={ProjectsIcon}></ComingSoonIcon>
-      <ComingSoonTitle>
-         Coming soon! {window.location.pathname === '/about' && '/About'}
-         {window.location.pathname === '/projects' && '/Projects'}
-         {window.location.pathname === '/contact' && '/Contact'}
-      </ComingSoonTitle>
-   </ComingSoonContainer>
-)
+const ComingSoon = () => {
+   const { pathname } = useLocation()
+   const pageLabel =
+      navigationLinksData.find(({ url }) => url === pathname)?.label ?? ''
+
+   return (
+      <section className={comingSoonContainer}>
+         <img className={comingSoonIcon} src={ProjectsIcon} alt="Projects" />
+         <h1 className={comingSoonTitle}>
+            {`Coming soon!${pageLabel ? ` /${pageLabel}` : ''}`}
+         </h1>
+      </section>
+   )
+}
 
 export default ComingSoon

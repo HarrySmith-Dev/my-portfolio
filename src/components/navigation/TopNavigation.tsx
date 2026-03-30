@@ -1,65 +1,52 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import LogoIcon from '../../assets/NavImage.png'
-import { NavigationLinksData } from '../types/SharedTypes'
+import navigationLinksData from './navigationLinks'
 import {
-   NavigationContainer,
-   NavigationContentWrapper,
-   NavigationItemsContainer,
-   NavigationLabel,
-   NavigationLinks,
-   NavigationLinksContainer,
-   NavigationLinksWrapper,
-   NavigationLinkText,
-   NavigationLinkTextContainer,
-   NavigationLogo,
-   NavigationLogoContainer,
-} from './TopNavigation.style'
-
-const navigationLinksData: NavigationLinksData[] = [
-   {
-      url: '/',
-      label: 'Home',
-   },
-   {
-      url: '/about',
-      label: 'About',
-   },
-   {
-      url: '/projects',
-      label: 'Projects',
-   },
-   {
-      url: '/contact',
-      label: 'Contact',
-   },
-]
+   navigationContainer,
+   navigationContentWrapper,
+   navigationItemsContainer,
+   navigationLabel,
+   navigationLinks,
+   navigationLinksContainer,
+   navigationLinksWrapper,
+   navigationLinkText,
+   navigationLinkTextContainer,
+   navigationLogo,
+   navigationLogoContainer,
+} from './TopNavigation.css'
 
 const TopNavigation = () => (
    <header>
-      <NavigationContainer>
-         <NavigationContentWrapper>
-            <NavigationLogoContainer to="/">
-               <NavigationLogo src={LogoIcon} />
-            </NavigationLogoContainer>
-            <NavigationItemsContainer>
-               <NavigationLinkTextContainer to="/">
-                  <NavigationLinkText>Harry Smith</NavigationLinkText>
-               </NavigationLinkTextContainer>
-               <NavigationLinksContainer>
+      <nav className={navigationContainer}>
+         <div className={navigationContentWrapper}>
+            <Link to="/" className={navigationLogoContainer}>
+               <img
+                  className={navigationLogo}
+                  src={LogoIcon}
+                  alt="Harry Smith"
+               />
+            </Link>
+            <div className={navigationItemsContainer}>
+               <Link to="/" className={navigationLinkTextContainer}>
+                  <h1 className={navigationLinkText}>Harry Smith</h1>
+               </Link>
+               <ul className={navigationLinksContainer}>
                   {navigationLinksData.map(({ url, label }) => (
-                     <NavigationLinksWrapper key={`${label}-top-navigation`}>
-                        <NavigationLinks to={url}>
-                           <NavigationLabel>{label}</NavigationLabel>
-                        </NavigationLinks>
-                     </NavigationLinksWrapper>
+                     <li
+                        className={navigationLinksWrapper}
+                        key={`${label}-top-navigation`}
+                     >
+                        <Link to={url} className={navigationLinks}>
+                           <p className={navigationLabel}>{label}</p>
+                        </Link>
+                     </li>
                   ))}
-               </NavigationLinksContainer>
-            </NavigationItemsContainer>
-         </NavigationContentWrapper>
-      </NavigationContainer>
+               </ul>
+            </div>
+         </div>
+      </nav>
    </header>
 )
 

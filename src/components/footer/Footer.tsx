@@ -1,36 +1,43 @@
 import React from 'react'
 
 import {
-   FooterBackgroundContainer,
-   FooterContainer,
-   FooterLinks,
-   FooterText,
-   FooterTextContainer,
-} from './Footer.style'
+   footerBackgroundContainer,
+   footerContainer,
+   footerLink,
+   footerLinkPurple,
+   footerText,
+   footerTextContainer,
+} from './Footer.css'
 
 const Footer = () => (
-   <FooterBackgroundContainer>
-      <FooterContainer>
-         <FooterTextContainer>
-            <FooterText>&copy; 2024 Harry Smith.</FooterText>
-            <FooterText>
+   <footer className={footerBackgroundContainer}>
+      <div className={footerContainer}>
+         <div className={footerTextContainer}>
+            <p className={footerText}>&copy; 2024 Harry Smith.</p>
+            <p className={footerText}>
                Built with{' '}
-               <FooterLinks
+               <a
                   target="_blank"
                   href="https://vitejs.dev/"
-                  $isPurple
+                  rel="noreferrer"
+                  className={footerLinkPurple}
                >
                   Vite
-               </FooterLinks>{' '}
+               </a>{' '}
                and{' '}
-               <FooterLinks target="_blank" href="https://react.dev/">
+               <a
+                  target="_blank"
+                  href="https://react.dev/"
+                  rel="noreferrer"
+                  className={footerLink}
+               >
                   React
-               </FooterLinks>
+               </a>
                .
-            </FooterText>
-         </FooterTextContainer>
-      </FooterContainer>
-   </FooterBackgroundContainer>
+            </p>
+         </div>
+      </div>
+   </footer>
 )
 
 export default Footer

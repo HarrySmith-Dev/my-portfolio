@@ -1,14 +1,15 @@
 import React, { ReactNode } from 'react'
 
 import {
-   AboutCardBackgroundContainer,
-   AboutCardContainer,
-   AboutCardContentWrapper,
-   AboutCardHeading,
-   AboutCardLink,
-   AboutCardSpan,
-   AboutCardText,
-} from './AboutCard.style'
+   aboutCardBackgroundContainer,
+   aboutCardContainer,
+   aboutCardContentWrapper,
+   aboutCardHeading,
+   aboutCardLink,
+   aboutCardSpan,
+   aboutCardSubHeadingText,
+   aboutCardText,
+} from './AboutCard.css'
 
 type AboutCardData = {
    heading: string
@@ -20,55 +21,57 @@ const aboutCardData: AboutCardData[] = [
    {
       heading: 'Software Developer',
       subHeading: (
-         <AboutCardText $isSubHeading>
+         <p className={aboutCardSubHeadingText}>
             I build front-end applications using{' '}
-            <AboutCardSpan>React</AboutCardSpan>.
-         </AboutCardText>
+            <span className={aboutCardSpan}>React</span>.
+         </p>
       ),
       text: (
          <>
-            <AboutCardText>
+            <p className={aboutCardText}>
                I&apos;m from Milton Keynes, UK and am currently a Junior
                Software Engineer at an InsurTech company.
-            </AboutCardText>
-            <AboutCardText>
+            </p>
+            <p className={aboutCardText}>
                Check out my{' '}
-               <AboutCardLink
+               <a
+                  className={aboutCardLink}
                   href="https://github.com/HarrySmith-Dev/"
                   rel="noreferrer"
                   target="_blank"
                >
                   GitHub
-               </AboutCardLink>{' '}
+               </a>{' '}
                and{' '}
-               <AboutCardLink
+               <a
+                  className={aboutCardLink}
                   href="https://www.linkedin.com/in/harry-smith-software-developer/"
                   rel="noreferrer"
                   target="_blank"
                >
                   LinkedIn
-               </AboutCardLink>
+               </a>
                .
-            </AboutCardText>
+            </p>
          </>
       ),
    },
 ]
 
 const AboutCard = () => (
-   <AboutCardBackgroundContainer>
-      <AboutCardContainer>
-         <AboutCardContentWrapper>
+   <article className={aboutCardBackgroundContainer}>
+      <section className={aboutCardContainer}>
+         <div className={aboutCardContentWrapper}>
             {aboutCardData.map(({ heading, subHeading, text }) => (
                <div key={`${heading}`}>
-                  <AboutCardHeading>{heading}</AboutCardHeading>
+                  <h2 className={aboutCardHeading}>{heading}</h2>
                   {subHeading}
                   {text}
                </div>
             ))}
-         </AboutCardContentWrapper>
-      </AboutCardContainer>
-   </AboutCardBackgroundContainer>
+         </div>
+      </section>
+   </article>
 )
 
 export default AboutCard

@@ -1,29 +1,30 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { useForm } from 'react-hook-form'
-
-import emailjs from 'emailjs-com'
 
 import { sendContactEmail } from '../../utils/emailService'
 import ErrorFeedback from '../feedback/ErrorFeedback'
 import SuccessFeedback from '../feedback/SuccessFeedback'
 import {
-   ContactFormBackgroundContainer,
-   ContactFormButton,
-   ContactFormContainer,
-   ContactFormErrorText,
-   ContactFormField,
-   ContactFormFieldWrapper,
-   ContactFormInput,
-   ContactFormLabel,
-   ContactFormLabelSpan,
-   ContactFormTextArea,
-   ContactText,
-   FeedbackContainer,
-   Form,
-   Loader,
-   LoaderContainer,
-   Overlay,
-} from './ContactForm.style'
+   contactFormBackgroundContainer,
+   contactFormButton,
+   contactFormContainer,
+   contactFormContainerInactive,
+   contactFormErrorTextActive,
+   contactFormField,
+   contactFormFieldWrapper,
+   contactFormInput,
+   contactFormInputError,
+   contactFormLabel,
+   contactFormLabelSpan,
+   contactFormTextArea,
+   contactFormTextAreaError,
+   contactText,
+   feedbackContainer,
+   form,
+   loader,
+   loaderContainer,
+   overlay,
+} from './ContactForm.css'
 
 export type FormInput = {
    name: string
@@ -42,10 +43,6 @@ const ContactForm: React.FC = () => {
       reset,
    } = useForm<FormInput>({ mode: 'onChange' })
 
-   useEffect(() => {
-      emailjs.init(import.meta.env.VITE_API_KEY)
-   }, [])
-
    const closeFeedback = () => {
       setIsFeedbackOpen(false)
       setFeedback(null)
@@ -53,64 +50,72 @@ const ContactForm: React.FC = () => {
 
    const onSubmit = async (data: FormInput) => {
       try {
-         sendContactEmail(data)
+         await sendContactEmail(data)
          setFeedback(
-            <FeedbackContainer aria-modal="true">
+            <div className={feedbackContainer} aria-modal="true">
                <SuccessFeedback onClose={closeFeedback} />
-            </FeedbackContainer>
+            </div>
          )
          setIsFeedbackOpen(true)
          reset()
       } catch (error) {
          setFeedback(
-            <FeedbackContainer aria-modal="true">
+            <div className={feedbackContainer} aria-modal="true">
                <ErrorFeedback onClose={closeFeedback} />
-            </FeedbackContainer>
+            </div>
          )
          setIsFeedbackOpen(true)
       }
    }
 
    return (
-      <ContactFormBackgroundContainer>
-         {isFeedbackOpen && <Overlay />}
+      <article className={contactFormBackgroundContainer}>
+         {isFeedbackOpen && <div className={overlay} />}
 
-         <ContactFormContainer
-            $isOpen={isFeedbackOpen}
+         <section
+            className={
+               isFeedbackOpen ? contactFormContainerInactive : contactFormContainer
+            }
             aria-hidden={isSubmitting}
          >
-            <ContactText>Please fill in the form below</ContactText>
-            <Form
+            <p className={contactText}>Please fill in the form below</p>
+            <form
+               className={form}
                onSubmit={handleSubmit(onSubmit)}
                aria-busy={isSubmitting}
                aria-live="polite"
             >
-               <ContactFormFieldWrapper>
-                  <ContactFormField>
-                     <ContactFormLabel htmlFor="name">
-                        Name <ContactFormLabelSpan>*</ContactFormLabelSpan>
-                     </ContactFormLabel>
-                     <ContactFormInput
+               <div className={contactFormFieldWrapper}>
+                  <div className={contactFormField}>
+                     <label className={contactFormLabel} htmlFor="name">
+                        Name <span className={contactFormLabelSpan}>*</span>
+                     </label>
+                     <input
+                        className={
+                           errors.name ? contactFormInputError : contactFormInput
+                        }
                         id="name"
                         type="text"
                         {...register('name', {
                            required: 'Please enter your name',
                         })}
                         disabled={isSubmitting || isFeedbackOpen}
-                        $hasError={!!errors.name}
                      />
                      {errors.name && (
-                        <ContactFormErrorText $hasError={!!errors.name}>
+                        <p className={contactFormErrorTextActive}>
                            {errors.name.message}
-                        </ContactFormErrorText>
+                        </p>
                      )}
-                  </ContactFormField>
+                  </div>
 
-                  <ContactFormField>
-                     <ContactFormLabel htmlFor="email">
-                        Email <ContactFormLabelSpan>*</ContactFormLabelSpan>
-                     </ContactFormLabel>
-                     <ContactFormInput
+                  <div className={contactFormField}>
+                     <label className={contactFormLabel} htmlFor="email">
+                        Email <span className={contactFormLabelSpan}>*</span>
+                     </label>
+                     <input
+                        className={
+                           errors.email ? contactFormInputError : contactFormInput
+                        }
                         id="email"
                         type="email"
                         {...register('email', {
@@ -118,53 +123,57 @@ const ContactForm: React.FC = () => {
                            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                         })}
                         disabled={isSubmitting || isFeedbackOpen}
-                        $hasError={!!errors.email}
                      />
                      {errors.email && (
-                        <ContactFormErrorText $hasError={!!errors.email}>
+                        <p className={contactFormErrorTextActive}>
                            {errors.email.message}
-                        </ContactFormErrorText>
+                        </p>
                      )}
-                  </ContactFormField>
-               </ContactFormFieldWrapper>
+                  </div>
+               </div>
 
-               <ContactFormField>
-                  <ContactFormLabel htmlFor="message">
-                     Message <ContactFormLabelSpan>*</ContactFormLabelSpan>
-                  </ContactFormLabel>
-                  <ContactFormTextArea
+               <div className={contactFormField}>
+                  <label className={contactFormLabel} htmlFor="message">
+                     Message <span className={contactFormLabelSpan}>*</span>
+                  </label>
+                  <textarea
+                     className={
+                        errors.message
+                           ? contactFormTextAreaError
+                           : contactFormTextArea
+                     }
                      id="message"
                      {...register('message', {
                         required: 'Please enter a message',
                      })}
                      disabled={isSubmitting || isFeedbackOpen}
-                     $hasError={!!errors.message}
                   />
                   {errors.message && (
-                     <ContactFormErrorText $hasError={!!errors.message}>
+                     <p className={contactFormErrorTextActive}>
                         {errors.message.message}
-                     </ContactFormErrorText>
+                     </p>
                   )}
-               </ContactFormField>
+               </div>
 
-               <ContactFormButton
+               <button
+                  className={contactFormButton}
                   type="submit"
                   disabled={isSubmitting || isFeedbackOpen || !isValid}
                >
                   Send Message
-               </ContactFormButton>
-            </Form>
-         </ContactFormContainer>
+               </button>
+            </form>
+         </section>
          {isSubmitting && (
-            <Overlay>
-               <LoaderContainer>
-                  <Loader />
-               </LoaderContainer>
-            </Overlay>
+            <div className={overlay}>
+               <div className={loaderContainer}>
+                  <div className={loader} />
+               </div>
+            </div>
          )}
 
          {isFeedbackOpen && feedback}
-      </ContactFormBackgroundContainer>
+      </article>
    )
 }
 

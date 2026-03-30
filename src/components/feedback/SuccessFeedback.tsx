@@ -1,24 +1,27 @@
 import React from 'react'
 
+import { contactFormButtonFeedback } from '../contactForm/ContactForm.css'
 import {
-   ContactFormButton,
-   FeedbackContainer,
-} from '../contactForm/ContactForm.style'
-import { FeedbackHeader, FeedbackText, FeedbackWrapper } from './Feedback.style'
+   feedbackHeader,
+   feedbackText,
+   feedbackWrapper,
+} from './Feedback.css'
 
 const SuccessFeedback = ({ onClose }: { onClose: () => void }) => (
-   <FeedbackContainer>
-      <FeedbackWrapper>
-         <FeedbackHeader>Speak soon!</FeedbackHeader>
-         <FeedbackText>
-            I&apos;ve received your message and will get back to you as soon as
-            possible.
-         </FeedbackText>
-         <ContactFormButton $isFeedback onClick={onClose}>
-            Close
-         </ContactFormButton>
-      </FeedbackWrapper>
-   </FeedbackContainer>
+   <div className={feedbackWrapper}>
+      <h3 className={feedbackHeader}>Speak soon!</h3>
+      <p className={feedbackText}>
+         I&apos;ve received your message and will get back to you as soon as
+         possible.
+      </p>
+      <button
+         type="button"
+         className={contactFormButtonFeedback}
+         onClick={onClose}
+      >
+         Close
+      </button>
+   </div>
 )
 
 export default SuccessFeedback
