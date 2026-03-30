@@ -9,7 +9,9 @@ import {
 
 const ErrorFeedback = ({ onClose }: { onClose: () => void }) => (
    <div className={feedbackWrapper}>
-      <h3 className={feedbackHeader}>Something went wrong</h3>
+      <h3 id="contact-feedback-title" className={feedbackHeader}>
+         Something went wrong
+      </h3>
       <p className={feedbackText}>
          Sorry, your message couldn&apos;t be sent. Please try again later.
       </p>

@@ -32,5 +32,10 @@ export const sendContactEmail = async (data: FormInput) => {
       message: data.message,
    }
 
-   return emailjs.send(serviceId, templateId, templateParams)
+   try {
+      return await emailjs.send(serviceId, templateId, templateParams)
+   } catch (error) {
+      console.error('Failed to send contact email', error)
+      throw new Error('Unable to send message right now. Please try again later.')
+   }
 }
