@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-import ComingSoon from '../../components/comingSoon/ComingSoon'
+import ComingSoon from "../../components/comingSoon/ComingSoon";
 
 const Projects = () => (
-   <>
-      <ComingSoon />
-   </>
-)
+  <>
+    <ComingSoon />
+  </>
+);
 
-export default Projects
+export default Projects;

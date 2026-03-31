@@ -64,6 +64,7 @@ const ContactForm: React.FC = () => {
       setIsFeedbackOpen(true);
       reset();
     } catch (error) {
+      console.error("Error sending contact email:", error);
       setFeedback(
         <div
           className={feedbackContainer}

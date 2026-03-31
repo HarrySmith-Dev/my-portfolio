@@ -1,43 +1,43 @@
-import React from 'react'
+import React from "react";
 
 import {
-   footerBackgroundContainer,
-   footerContainer,
-   footerLink,
-   footerLinkPurple,
-   footerText,
-   footerTextContainer,
-} from './Footer.css'
+  footerBackgroundContainer,
+  footerContainer,
+  footerLink,
+  footerLinkPurple,
+  footerText,
+  footerTextContainer,
+} from "./Footer.css";
 
 const Footer = () => (
-   <footer className={footerBackgroundContainer}>
-      <div className={footerContainer}>
-         <div className={footerTextContainer}>
-            <p className={footerText}>&copy; 2024 Harry Smith.</p>
-            <p className={footerText}>
-               Built with{' '}
-               <a
-                  target="_blank"
-                  href="https://vitejs.dev/"
-                  rel="noreferrer"
-                  className={footerLinkPurple}
-               >
-                  Vite
-               </a>{' '}
-               and{' '}
-               <a
-                  target="_blank"
-                  href="https://react.dev/"
-                  rel="noreferrer"
-                  className={footerLink}
-               >
-                  React
-               </a>
-               .
-            </p>
-         </div>
+  <footer className={footerBackgroundContainer}>
+    <div className={footerContainer}>
+      <div className={footerTextContainer}>
+        <p className={footerText}>&copy; 2024 Harry Smith.</p>
+        <p className={footerText}>
+          Built with{" "}
+          <a
+            target="_blank"
+            href="https://vitejs.dev/"
+            rel="noreferrer"
+            className={footerLinkPurple}
+          >
+            Vite
+          </a>{" "}
+          and{" "}
+          <a
+            target="_blank"
+            href="https://react.dev/"
+            rel="noreferrer"
+            className={footerLink}
+          >
+            React
+          </a>
+          .
+        </p>
       </div>
-   </footer>
-)
+    </div>
+  </footer>
+);
 
-export default Footer
+export default Footer;

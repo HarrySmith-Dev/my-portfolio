@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-import ComingSoon from '../../components/comingSoon/ComingSoon'
+import ComingSoon from "../../components/comingSoon/ComingSoon";
 
 const About = () => (
-   <>
-      <ComingSoon />
-   </>
-)
+  <>
+    <ComingSoon />
+  </>
+);
 
-export default About
+export default About;
