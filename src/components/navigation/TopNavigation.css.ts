@@ -115,3 +115,7 @@ export const navigationLabel = style({
     },
   },
 });
+
+export const navigationLabelActive = style({
+  color: colors.lightBlue,
+});

@@ -29,8 +29,8 @@ const aboutCardData: AboutCardData[] = [
     text: (
       <>
         <p className={aboutCardText}>
-          I&apos;m from Milton Keynes, UK and am currently a Junior Software
-          Engineer at an InsurTech company.
+          I&apos;m from Milton Keynes, UK and am currently a Software Engineer
+          at an InsurTech company.
         </p>
         <p className={aboutCardText}>
           Check out my{" "}

@@ -13,7 +13,7 @@ const Footer = () => (
   <footer className={footerBackgroundContainer}>
     <div className={footerContainer}>
       <div className={footerTextContainer}>
-        <p className={footerText}>&copy; 2024 Harry Smith.</p>
+        <p className={footerText}>&copy; 2026 Harry Smith.</p>
         <p className={footerText}>
           Built with{" "}
           <a
