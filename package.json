@@ -15,11 +15,12 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@vanilla-extract/css": "^1.18.0",
+    "@vercel/analytics": "^2.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.53.1",
-    "react-router-dom": "^6.26.1",
-    "@vanilla-extract/css": "^1.18.0"
+    "react-router-dom": "^6.26.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

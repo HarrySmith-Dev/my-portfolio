@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/next'
 
 import Footer from './components/footer/Footer'
 import BottomNavigation from './components/navigation/BottomNavigation'
@@ -17,6 +18,7 @@ const App = () => (
     </Routes>
     <BottomNavigation />
     <Footer />
+    <Analytics />
   </>
 )
 
