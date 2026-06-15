@@ -7,7 +7,7 @@ import {
   aboutCardSpan,
   aboutCardSubHeadingText,
   aboutCardText,
-} from "./AboutCard.css";
+} from './AboutCard.css'
 
 const AboutCard = () => (
   <article className={aboutCardBackgroundContainer}>
@@ -16,9 +16,9 @@ const AboutCard = () => (
         <div>
           <h2 className={aboutCardHeading}>Software Engineer</h2>
           <p className={aboutCardSubHeadingText}>
-            I build front-end applications using{" "}
-            <span className={aboutCardSpan.lightBlue}>React</span>,{" "}
-            <span className={aboutCardSpan.darkBlue}>TypeScript</span>, and{" "}
+            I build front-end applications using{' '}
+            <span className={aboutCardSpan.lightBlue}>React</span>,{' '}
+            <span className={aboutCardSpan.darkBlue}>TypeScript</span>, and{' '}
             <span className={aboutCardSpan.orange}>AWS</span>.
           </p>
           <p className={aboutCardText}>
@@ -27,7 +27,7 @@ const AboutCard = () => (
             InsurTech company.
           </p>
           <p className={aboutCardText}>
-            Check out my{" "}
+            Check out my{' '}
             <a
               className={aboutCardLink}
               href="https://github.com/HarrySmith-Dev/"
@@ -35,8 +35,8 @@ const AboutCard = () => (
               target="_blank"
             >
               GitHub
-            </a>{" "}
-            and{" "}
+            </a>{' '}
+            and{' '}
             <a
               className={aboutCardLink}
               href="https://www.linkedin.com/in/harry-smith-software-developer/"
@@ -51,6 +51,6 @@ const AboutCard = () => (
       </div>
     </section>
   </article>
-);
+)
 
-export default AboutCard;
+export default AboutCard

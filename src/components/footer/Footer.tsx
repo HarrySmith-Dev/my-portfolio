@@ -5,9 +5,9 @@ import {
   footerLinkPurple,
   footerText,
   footerTextContainer,
-} from "./Footer.css";
+} from './Footer.css'
 
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear()
 
 const Footer = () => (
   <footer className={footerBackgroundContainer}>
@@ -15,7 +15,7 @@ const Footer = () => (
       <div className={footerTextContainer}>
         <p className={footerText}>&copy; {currentYear} Harry Smith.</p>
         <p className={footerText}>
-          Built with{" "}
+          Built with{' '}
           <a
             target="_blank"
             href="https://vitejs.dev/"
@@ -23,8 +23,8 @@ const Footer = () => (
             className={footerLinkPurple}
           >
             Vite
-          </a>{" "}
-          and{" "}
+          </a>{' '}
+          and{' '}
           <a
             target="_blank"
             href="https://react.dev/"
@@ -38,6 +38,6 @@ const Footer = () => (
       </div>
     </div>
   </footer>
-);
+)
 
-export default Footer;
+export default Footer

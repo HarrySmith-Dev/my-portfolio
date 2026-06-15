@@ -1,24 +1,24 @@
-import ContactIcon from "../../assets/ContactIcon.svg";
-import HomeIcon from "../../assets/HomeIcon.svg";
-import ProjectsIcon from "../../assets/ProjectsIcon.svg";
-import type { NavigationLinksData } from "../types/SharedTypes";
+import ContactIcon from '../../assets/ContactIcon.svg'
+import HomeIcon from '../../assets/HomeIcon.svg'
+import ProjectsIcon from '../../assets/ProjectsIcon.svg'
+import type { NavigationLinksData } from '../types/SharedTypes'
 
 const navigationLinksData: NavigationLinksData[] = [
   {
-    url: "/",
-    label: "Home",
+    url: '/',
+    label: 'Home',
     iconSrc: HomeIcon,
   },
   {
-    url: "/projects",
-    label: "Projects",
+    url: '/projects',
+    label: 'Projects',
     iconSrc: ProjectsIcon,
   },
   {
-    url: "/contact",
-    label: "Contact",
+    url: '/contact',
+    label: 'Contact',
     iconSrc: ContactIcon,
   },
-];
+]
 
-export default navigationLinksData;
+export default navigationLinksData

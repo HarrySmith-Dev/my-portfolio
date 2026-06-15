@@ -1,5 +1,5 @@
-import ComingSoon from "../../components/comingSoon/ComingSoon";
+import ComingSoon from '../../components/comingSoon/ComingSoon'
 
-const Projects = () => <ComingSoon />;
+const Projects = () => <ComingSoon />
 
-export default Projects;
+export default Projects

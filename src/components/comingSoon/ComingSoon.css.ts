@@ -1,27 +1,27 @@
-import { style } from "@vanilla-extract/css";
+import { style } from '@vanilla-extract/css'
 
-import { typography } from "../../styles/shared";
-import { tabletBreakpoint } from "../../styles/global.css";
+import { typography } from '../../styles/shared'
+import { tabletBreakpoint } from '../../styles/global.css'
 
 export const comingSoonContainer = style({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  padding: "50px",
-});
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '50px',
+})
 
 export const comingSoonIcon = style({
-  width: "100px",
-  height: "100px",
+  width: '100px',
+  height: '100px',
 
-  "@media": {
+  '@media': {
     [tabletBreakpoint]: {
-      width: "200px",
-      height: "200px",
+      width: '200px',
+      height: '200px',
     },
   },
-});
+})
 
 export const comingSoonTitle = style({
   fontFamily: typography.fontFamilyBase,
@@ -30,9 +30,9 @@ export const comingSoonTitle = style({
   letterSpacing: 0,
   margin: 0,
 
-  "@media": {
+  '@media': {
     [tabletBreakpoint]: {
       fontSize: typography.fontSize.display,
     },
   },
-});
+})

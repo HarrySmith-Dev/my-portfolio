@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 import {
   bottomNavigationContainer,
@@ -7,8 +7,8 @@ import {
   bottomNavigationLinks,
   bottomNavigationLinksContainer,
   bottomNavigationListItem,
-} from "./BottomNavigation.css";
-import navigationLinksData from "./navigationLinks";
+} from './BottomNavigation.css'
+import navigationLinksData from './navigationLinks'
 
 const BottomNavigation = () => (
   <nav className={bottomNavigationContainer}>
@@ -32,6 +32,6 @@ const BottomNavigation = () => (
       ))}
     </ul>
   </nav>
-);
+)
 
-export default BottomNavigation;
+export default BottomNavigation

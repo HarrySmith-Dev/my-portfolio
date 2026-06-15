@@ -1,56 +1,56 @@
-import { style } from "@vanilla-extract/css";
+import { style } from '@vanilla-extract/css'
 
-import { colors, shadows, spacing, typography } from "../../styles/shared";
-import { desktopBreakpoint, mobileBreakpoint } from "../../styles/global.css";
+import { colors, shadows, spacing, typography } from '../../styles/shared'
+import { desktopBreakpoint, mobileBreakpoint } from '../../styles/global.css'
 
 export const bottomNavigationContainer = style({
-  width: "100%",
-  position: "fixed",
+  width: '100%',
+  position: 'fixed',
   bottom: 0,
   backgroundColor: colors.white,
   boxShadow: shadows.bottomNav,
   zIndex: 2,
 
-  "@media": {
+  '@media': {
     [desktopBreakpoint]: {
-      display: "none",
+      display: 'none',
     },
   },
-});
+})
 
 export const bottomNavigationLinksContainer = style({
-  display: "flex",
-  justifyContent: "center",
-  listStyleType: "none",
+  display: 'flex',
+  justifyContent: 'center',
+  listStyleType: 'none',
   padding: spacing.none,
-});
+})
 
 export const bottomNavigationListItem = style({
-  margin: "0 25px",
+  margin: '0 25px',
 
-  "@media": {
+  '@media': {
     [mobileBreakpoint]: {
-      margin: "0 35px",
+      margin: '0 35px',
     },
   },
-});
+})
 
 export const bottomNavigationContentContainer = style({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  textDecoration: "none",
-});
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  textDecoration: 'none',
+})
 
 export const bottomNavigationLinks = style({
   fontSize: typography.fontSize.md,
   fontFamily: typography.fontFamilyBase,
   color: colors.slate700,
   margin: spacing.none,
-});
+})
 
 export const bottomNavigationIcon = style({
-  width: "25px",
-  height: "25px",
-  marginBottom: "5px",
-});
+  width: '25px',
+  height: '25px',
+  marginBottom: '5px',
+})

@@ -1,9 +1,9 @@
-import { type ReactNode, useState } from "react";
-import { useForm } from "react-hook-form";
+import { type ReactNode, useState } from 'react'
+import { useForm } from 'react-hook-form'
 
-import { sendContactEmail } from "../../utils/emailService";
-import ErrorFeedback from "../feedback/ErrorFeedback";
-import SuccessFeedback from "../feedback/SuccessFeedback";
+import { sendContactEmail } from '../../utils/emailService'
+import ErrorFeedback from '../feedback/ErrorFeedback'
+import SuccessFeedback from '../feedback/SuccessFeedback'
 import {
   contactFormBackgroundContainer,
   contactFormButton,
@@ -24,33 +24,33 @@ import {
   loader,
   loaderContainer,
   overlay,
-} from "./ContactForm.css";
+} from './ContactForm.css'
 
 export type FormInput = {
-  name: string;
-  email: string;
-  message: string;
-};
+  name: string
+  email: string
+  message: string
+}
 
 const ContactForm = () => {
-  const [feedback, setFeedback] = useState<ReactNode | null>(null);
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+  const [feedback, setFeedback] = useState<ReactNode | null>(null)
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
     reset,
-  } = useForm<FormInput>({ mode: "onChange" });
+  } = useForm<FormInput>({ mode: 'onChange' })
 
   const closeFeedback = () => {
-    setIsFeedbackOpen(false);
-    setFeedback(null);
-  };
+    setIsFeedbackOpen(false)
+    setFeedback(null)
+  }
 
   const onSubmit = async (data: FormInput) => {
     try {
-      await sendContactEmail(data);
+      await sendContactEmail(data)
       setFeedback(
         <div
           className={feedbackContainer}
@@ -60,11 +60,11 @@ const ContactForm = () => {
         >
           <SuccessFeedback onClose={closeFeedback} />
         </div>,
-      );
-      setIsFeedbackOpen(true);
-      reset();
+      )
+      setIsFeedbackOpen(true)
+      reset()
     } catch (error) {
-      console.error("Error sending contact email:", error);
+      console.error('Error sending contact email:', error)
       setFeedback(
         <div
           className={feedbackContainer}
@@ -74,10 +74,10 @@ const ContactForm = () => {
         >
           <ErrorFeedback onClose={closeFeedback} />
         </div>,
-      );
-      setIsFeedbackOpen(true);
+      )
+      setIsFeedbackOpen(true)
     }
-  };
+  }
 
   return (
     <article className={contactFormBackgroundContainer}>
@@ -107,8 +107,8 @@ const ContactForm = () => {
                 }
                 id="name"
                 type="text"
-                {...register("name", {
-                  required: "Please enter your name",
+                {...register('name', {
+                  required: 'Please enter your name',
                 })}
                 disabled={isSubmitting || isFeedbackOpen}
               />
@@ -129,8 +129,8 @@ const ContactForm = () => {
                 }
                 id="email"
                 type="email"
-                {...register("email", {
-                  required: "Please enter a valid email address",
+                {...register('email', {
+                  required: 'Please enter a valid email address',
                   pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                 })}
                 disabled={isSubmitting || isFeedbackOpen}
@@ -152,8 +152,8 @@ const ContactForm = () => {
                 errors.message ? contactFormTextAreaError : contactFormTextArea
               }
               id="message"
-              {...register("message", {
-                required: "Please enter a message",
+              {...register('message', {
+                required: 'Please enter a message',
               })}
               disabled={isSubmitting || isFeedbackOpen}
             />
@@ -183,7 +183,7 @@ const ContactForm = () => {
 
       {isFeedbackOpen && feedback}
     </article>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

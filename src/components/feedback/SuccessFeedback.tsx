@@ -1,5 +1,5 @@
-import { contactFormButtonFeedback } from "../contactForm/ContactForm.css";
-import { feedbackHeader, feedbackText, feedbackWrapper } from "./Feedback.css";
+import { contactFormButtonFeedback } from '../contactForm/ContactForm.css'
+import { feedbackHeader, feedbackText, feedbackWrapper } from './Feedback.css'
 
 const SuccessFeedback = ({ onClose }: { onClose: () => void }) => (
   <div className={feedbackWrapper}>
@@ -18,6 +18,6 @@ const SuccessFeedback = ({ onClose }: { onClose: () => void }) => (
       Close
     </button>
   </div>
-);
+)
 
-export default SuccessFeedback;
+export default SuccessFeedback

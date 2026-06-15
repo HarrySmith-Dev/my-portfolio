@@ -1,11 +1,11 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom'
 
-import Footer from "./components/footer/Footer";
-import BottomNavigation from "./components/navigation/BottomNavigation";
-import TopNavigation from "./components/navigation/TopNavigation";
-import Contact from "./pages/contact/Contact";
-import Home from "./pages/home/Home";
-import Projects from "./pages/projects/Projects";
+import Footer from './components/footer/Footer'
+import BottomNavigation from './components/navigation/BottomNavigation'
+import TopNavigation from './components/navigation/TopNavigation'
+import Contact from './pages/contact/Contact'
+import Home from './pages/home/Home'
+import Projects from './pages/projects/Projects'
 
 const App = () => (
   <>
@@ -18,6 +18,6 @@ const App = () => (
     <BottomNavigation />
     <Footer />
   </>
-);
+)
 
-export default App;
+export default App

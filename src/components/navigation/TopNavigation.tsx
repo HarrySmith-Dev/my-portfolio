@@ -1,7 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from 'react-router-dom'
 
-import LogoIcon from "../../assets/NavImage.jpeg";
-import navigationLinksData from "./navigationLinks";
+import LogoIcon from '../../assets/NavImage.jpeg'
+import navigationLinksData from './navigationLinks'
 import {
   navigationContainer,
   navigationContentWrapper,
@@ -15,7 +15,7 @@ import {
   navigationLogo,
   navigationLogoContainer,
   navigationLabelActive,
-} from "./TopNavigation.css";
+} from './TopNavigation.css'
 
 const TopNavigation = () => (
   <header>
@@ -34,15 +34,15 @@ const TopNavigation = () => (
                 className={navigationLinksWrapper}
                 key={`${label}-top-navigation`}
               >
-                <NavLink to={url} end={url === "/"} className={navigationLinks}>
+                <NavLink to={url} end={url === '/'} className={navigationLinks}>
                   {({ isActive }) => (
                     <p
                       className={[
                         navigationLabel,
-                        isActive ? navigationLabelActive : "",
+                        isActive ? navigationLabelActive : '',
                       ]
                         .filter(Boolean)
-                        .join(" ")}
+                        .join(' ')}
                     >
                       {label}
                     </p>
@@ -55,6 +55,6 @@ const TopNavigation = () => (
       </div>
     </nav>
   </header>
-);
+)
 
-export default TopNavigation;
+export default TopNavigation

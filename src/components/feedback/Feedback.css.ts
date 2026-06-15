@@ -1,13 +1,13 @@
-import { style } from "@vanilla-extract/css";
+import { style } from '@vanilla-extract/css'
 
-import { colors, typography } from "../../styles/shared";
+import { colors, typography } from '../../styles/shared'
 
 export const feedbackWrapper = style({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  padding: "20px",
-});
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  padding: '20px',
+})
 
 export const feedbackHeader = style({
   fontFamily: typography.fontFamilyBase,
@@ -15,8 +15,8 @@ export const feedbackHeader = style({
   lineHeight: typography.lineHeight.tight,
   color: colors.slate800,
   fontWeight: 600,
-  margin: "10px 0",
-});
+  margin: '10px 0',
+})
 
 export const feedbackText = style({
   fontFamily: typography.fontFamilyBase,
@@ -24,5 +24,5 @@ export const feedbackText = style({
   lineHeight: typography.lineHeight.normal,
   color: colors.slate800,
   fontWeight: 400,
-  marginBottom: "20px",
-});
+  marginBottom: '20px',
+})
