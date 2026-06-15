@@ -1,4 +1,4 @@
-name: CI Workflow
+name: 'CI Workflow'
 
 on:
   push:
@@ -7,24 +7,28 @@ on:
   pull_request:
 
 jobs:
-  build 🚀:
+  build:
+    name: 'Build 🚀'
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: 'Checkout 📦'
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: 'Setup Node 🟢'
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: yarn
 
-      - name: Install dependencies
+      - name: 'Install dependencies 📚'
         run: yarn install --frozen-lockfile
 
-      - name: Lint
+      - name: 'Lint 🔍'
         run: yarn lint
 
-      - name: Build
+      - name: 'Build 🧱'
         run: yarn -s build
+
+      - name: 'Status message ✅'
+        run: echo "✅ All CI checks passed"
