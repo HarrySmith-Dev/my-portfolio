@@ -14,14 +14,17 @@ const AboutCard = () => (
     <section className={aboutCardContainer}>
       <div className={aboutCardContentWrapper}>
         <div>
-          <h2 className={aboutCardHeading}>Software Developer</h2>
+          <h2 className={aboutCardHeading}>Software Engineer</h2>
           <p className={aboutCardSubHeadingText}>
             I build front-end applications using{" "}
-            <span className={aboutCardSpan}>React</span>.
+            <span className={aboutCardSpan.lightBlue}>React</span>,{" "}
+            <span className={aboutCardSpan.darkBlue}>TypeScript</span>, and{" "}
+            <span className={aboutCardSpan.orange}>AWS</span>.
           </p>
           <p className={aboutCardText}>
-            I&apos;m from Milton Keynes, UK and am currently a Software Engineer
-            at an InsurTech company.
+            I&apos;m a London-based Software Engineer with 3 years of experience
+            scaling and delivering services for 1.5 million users at an
+            InsurTech company.
           </p>
           <p className={aboutCardText}>
             Check out my{" "}

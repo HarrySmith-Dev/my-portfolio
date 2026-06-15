@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors } from "../../styles/shared";
+import { colors, typography } from "../../styles/shared";
 import { desktopBreakpoint, tabletBreakpoint } from "../../styles/global.css";
 
 export const footerBackgroundContainer = style({
@@ -8,7 +8,7 @@ export const footerBackgroundContainer = style({
 });
 
 export const footerContainer = style({
-  borderTop: `2px solid ${colors.white3}`,
+  borderTop: `2px solid ${colors.grayLight}`,
   margin: "0 auto",
   width: "100%",
   position: "sticky",
@@ -26,29 +26,33 @@ export const footerTextContainer = style({
 });
 
 export const footerText = style({
-  fontFamily: "Jost, sans-serif",
-  fontSize: "16px",
+  fontFamily: typography.fontFamilyBase,
+  fontSize: typography.fontSize.sm,
+  lineHeight: typography.lineHeight.normal,
   margin: 0,
-  color: colors.gray2,
+  color: colors.slate700,
+
   selectors: {
     "&:last-child": {
       marginLeft: "auto",
     },
   },
+
   "@media": {
     [tabletBreakpoint]: {
-      fontSize: "18px",
+      fontSize: typography.fontSize.md,
     },
   },
 });
 
 const footerLinkBase = style({
-  color: colors.lightBlue,
+  color: colors.brandPrimary,
   textDecoration: "none",
   margin: 0,
+
   selectors: {
     "&:hover": {
-      opacity: 0.5,
+      textDecoration: "underline",
     },
   },
 });
@@ -57,7 +61,8 @@ export const footerLink = footerLinkBase;
 
 export const footerLinkPurple = style([
   footerLinkBase,
+
   {
-    color: colors.purple,
+    color: colors.brandVite,
   },
 ]);

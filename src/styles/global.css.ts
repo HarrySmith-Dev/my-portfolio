@@ -1,5 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
-import { colors } from "./shared";
+import { colors, typography } from "./shared";
 
 globalStyle("html, body, #main", {
   height: "100%",
@@ -9,7 +9,10 @@ globalStyle("html, body, #main", {
 globalStyle("body", {
   margin: 0,
   padding: 0,
-  backgroundColor: colors.white2,
+  backgroundColor: colors.blueGray50,
+  color: colors.slate700,
+  fontFamily: typography.fontFamilyBase,
+  lineHeight: typography.lineHeight.normal,
 });
 
 globalStyle("*, *::before, *::after", {

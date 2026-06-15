@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
+import { typography } from "../../styles/shared";
 import { tabletBreakpoint } from "../../styles/global.css";
 
 export const comingSoonContainer = style({
@@ -13,6 +14,7 @@ export const comingSoonContainer = style({
 export const comingSoonIcon = style({
   width: "100px",
   height: "100px",
+
   "@media": {
     [tabletBreakpoint]: {
       width: "200px",
@@ -22,14 +24,15 @@ export const comingSoonIcon = style({
 });
 
 export const comingSoonTitle = style({
-  fontFamily: "Jost, sans-serif",
-  fontSize: "25px",
-  lineHeight: "normal",
+  fontFamily: typography.fontFamilyBase,
+  fontSize: typography.fontSize.xl,
+  lineHeight: typography.lineHeight.tight,
   letterSpacing: 0,
   margin: 0,
+
   "@media": {
     [tabletBreakpoint]: {
-      fontSize: "50px",
+      fontSize: typography.fontSize.display,
     },
   },
 });

@@ -1,6 +1,6 @@
-import { style } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 
-import { colors } from "../../styles/shared";
+import { colors, shadows, spacing, typography } from "../../styles/shared";
 import { desktopBreakpoint, tabletBreakpoint } from "../../styles/global.css";
 
 export const aboutCardBackgroundContainer = style({
@@ -8,9 +8,9 @@ export const aboutCardBackgroundContainer = style({
 });
 
 export const aboutCardContainer = style({
-  backgroundColor: colors.white1,
-  borderRadius: "20px",
-  boxShadow: `0 20px 25px -5px ${colors.white3}`,
+  backgroundColor: colors.white,
+  borderRadius: spacing.lg,
+  boxShadow: shadows.card,
   width: "100%",
   marginBottom: "100px",
   "@media": {
@@ -26,23 +26,25 @@ export const aboutCardContentWrapper = style({
 });
 
 export const aboutCardHeading = style({
-  fontSize: "35px",
-  fontFamily: "Jost, sans-serif",
-  lineHeight: "normal",
+  fontSize: typography.fontSize.hero,
+  fontFamily: typography.fontFamilyBase,
+  lineHeight: typography.lineHeight.tight,
   letterSpacing: 0,
   fontWeight: 400,
   margin: "0 0 20px 0",
+  color: colors.slate800,
+
   "@media": {
     [tabletBreakpoint]: {
-      fontSize: "50px",
+      fontSize: typography.fontSize.display,
     },
   },
 });
 
 const aboutCardTextBase = style({
-  fontFamily: "Jost, sans-serif",
-  color: colors.gray2,
-  lineHeight: "normal",
+  fontFamily: typography.fontFamilyBase,
+  color: colors.slate700,
+  lineHeight: typography.lineHeight.normal,
   letterSpacing: 0,
   margin: "0 0 20px 0",
 });
@@ -50,10 +52,10 @@ const aboutCardTextBase = style({
 export const aboutCardText = style([
   aboutCardTextBase,
   {
-    fontSize: "18px",
+    fontSize: typography.fontSize.md,
     "@media": {
       [tabletBreakpoint]: {
-        fontSize: "20px",
+        fontSize: typography.fontSize.lg,
       },
     },
   },
@@ -62,26 +64,35 @@ export const aboutCardText = style([
 export const aboutCardSubHeadingText = style([
   aboutCardTextBase,
   {
-    fontSize: "20px",
+    fontSize: typography.fontSize.lg,
     "@media": {
       [tabletBreakpoint]: {
-        fontSize: "24px",
+        fontSize: typography.fontSize.xl,
       },
     },
   },
 ]);
 
-export const aboutCardSpan = style({
-  borderBottom: `3px solid ${colors.lightBlue}`,
+const aboutCardSpanBase = style({
+  borderBottomWidth: "3px",
+  borderBottomStyle: "solid",
 });
 
+export const aboutCardSpan = styleVariants({
+  lightBlue: [aboutCardSpanBase, { borderBottomColor: colors.brandReact }],
+  darkBlue: [aboutCardSpanBase, { borderBottomColor: colors.brandTypeScript }],
+  orange: [aboutCardSpanBase, { borderBottomColor: colors.brandAws }],
+});
+
+export type AboutCardSpanColor = keyof typeof aboutCardSpan;
+
 export const aboutCardLink = style({
-  fontSize: "18px",
-  fontFamily: "Jost, sans-serif",
-  color: colors.lightBlue,
-  lineHeight: "normal",
+  fontSize: typography.fontSize.md,
+  fontFamily: typography.fontFamilyBase,
+  color: colors.brandPrimary,
+  lineHeight: typography.lineHeight.normal,
   letterSpacing: 0,
-  margin: 0,
+  margin: spacing.none,
   textDecoration: "none",
   selectors: {
     "&:hover": {
@@ -90,7 +101,7 @@ export const aboutCardLink = style({
   },
   "@media": {
     [tabletBreakpoint]: {
-      fontSize: "20px",
+      fontSize: typography.fontSize.lg,
     },
   },
 });

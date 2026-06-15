@@ -1,6 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 
-import { colors } from "../../styles/shared";
+import { colors, spacing, typography } from "../../styles/shared";
 import { tabletBreakpoint } from "../../styles/global.css";
 
 export const contactFormBackgroundContainer = style({
@@ -14,6 +14,7 @@ const contactFormContainerBase = style({
   margin: "0 20px",
   pointerEvents: "auto",
   opacity: 1,
+
   "@media": {
     [tabletBreakpoint]: {
       maxWidth: "700px",
@@ -26,6 +27,7 @@ export const contactFormContainer = contactFormContainerBase;
 
 export const contactFormContainerInactive = style([
   contactFormContainerBase,
+
   {
     pointerEvents: "none",
     opacity: 0.5,
@@ -33,15 +35,16 @@ export const contactFormContainerInactive = style([
 ]);
 
 export const contactText = style({
-  fontFamily: "Jost, sans-serif",
-  fontSize: "20px",
-  color: colors.gray2,
-  lineHeight: "normal",
+  fontFamily: typography.fontFamilyBase,
+  fontSize: typography.fontSize.lg,
+  color: colors.slate700,
+  lineHeight: typography.lineHeight.normal,
   letterSpacing: 0,
   margin: "0 0 50px 0",
+
   "@media": {
     [tabletBreakpoint]: {
-      fontSize: "24px",
+      fontSize: typography.fontSize.xl,
     },
   },
 });
@@ -54,6 +57,7 @@ export const form = style({
 export const contactFormFieldWrapper = style({
   display: "flex",
   flexDirection: "column",
+
   "@media": {
     [tabletBreakpoint]: {
       flexDirection: "row",
@@ -68,22 +72,23 @@ export const contactFormField = style({
 });
 
 export const contactFormLabel = style({
-  fontFamily: "Jost, sans-serif",
+  fontFamily: typography.fontFamilyBase,
   fontWeight: 400,
-  color: colors.gray3,
+  color: colors.slate800,
   marginBottom: "10px",
-  fontSize: "16px",
+  fontSize: typography.fontSize.sm,
+
   "@media": {
     [tabletBreakpoint]: {
-      fontSize: "18px",
+      fontSize: typography.fontSize.md,
     },
   },
 });
 
 export const contactFormLabelSpan = style({
-  color: colors.red,
+  color: colors.danger,
   fontWeight: 600,
-  fontSize: "14px",
+  fontSize: typography.fontSize.xs,
 });
 
 const contactFormInputBase = style({
@@ -91,17 +96,19 @@ const contactFormInputBase = style({
   padding: "5px",
   height: "43px",
   borderRadius: "10px",
-  border: `1px solid ${colors.gray4}`,
-  fontSize: "16px",
-  fontFamily: "Jost, sans-serif",
+  border: `1px solid ${colors.blueGray200}`,
+  fontSize: typography.fontSize.sm,
+  fontFamily: typography.fontFamilyBase,
   transition: "box-shadow 0.3s ease, border-color 0.3s ease",
+
   selectors: {
     "&:focus": {
       outline: "none",
-      border: `1px solid ${colors.gray4}`,
-      boxShadow: `0 0 5px ${colors.gray4}`,
+      border: `1px solid ${colors.blueGray200}`,
+      boxShadow: `0 0 5px ${colors.blueGray200}`,
     },
   },
+
   "@media": {
     [tabletBreakpoint]: {
       width: "320px",
@@ -113,31 +120,34 @@ export const contactFormInput = contactFormInputBase;
 
 export const contactFormInputError = style([
   contactFormInputBase,
-  { margin: 0 },
+
+  { margin: spacing.none },
 ]);
 
 const contactFormTextAreaBase = style({
-  fontSize: "16px",
-  fontFamily: "Jost, sans-serif",
+  fontSize: typography.fontSize.sm,
+  fontFamily: typography.fontFamilyBase,
   padding: "5px",
   margin: "0 0 30px 0",
   minHeight: "160px",
   borderRadius: "10px",
-  border: `1px solid ${colors.gray4}`,
+  border: `1px solid ${colors.blueGray200}`,
   resize: "vertical",
   transition: "box-shadow 0.3s ease, border-color 0.3s ease",
+
   selectors: {
     "&:focus": {
       outline: "none",
-      border: `1px solid ${colors.gray4}`,
-      boxShadow: `0 0 5px ${colors.gray4}`,
+      border: `1px solid ${colors.blueGray200}`,
+      boxShadow: `0 0 5px ${colors.blueGray200}`,
     },
   },
+
   "@media": {
     [tabletBreakpoint]: {
       width: "675px",
-      padding: "8px",
-      fontSize: "18px",
+      padding: spacing.xs,
+      fontSize: typography.fontSize.md,
     },
   },
 });
@@ -146,18 +156,20 @@ export const contactFormTextArea = contactFormTextAreaBase;
 
 export const contactFormTextAreaError = style([
   contactFormTextAreaBase,
-  { margin: 0 },
+
+  { margin: spacing.none },
 ]);
 
 const contactFormErrorTextBase = style({
-  fontSize: "14px",
-  fontFamily: "Jost, sans-serif",
-  color: colors.red,
+  fontSize: typography.fontSize.xs,
+  fontFamily: typography.fontFamilyBase,
+  color: colors.danger,
   fontWeight: 400,
-  margin: "0",
+  margin: spacing.none,
+
   "@media": {
     [tabletBreakpoint]: {
-      fontSize: "16px",
+      fontSize: typography.fontSize.sm,
       margin: "5px 0 40px 0",
     },
   },
@@ -167,6 +179,7 @@ export const contactFormErrorText = contactFormErrorTextBase;
 
 export const contactFormErrorTextActive = style([
   contactFormErrorTextBase,
+
   {
     margin: "5px 0 25px 0",
     "@media": {
@@ -180,26 +193,28 @@ export const contactFormErrorTextActive = style([
 const contactFormButtonBase = style({
   width: "100%",
   textAlign: "center",
-  backgroundColor: colors.lightBlue,
-  color: colors.white1,
+  backgroundColor: colors.brandPrimary,
+  color: colors.white,
   border: "none",
   height: "45px",
   borderRadius: "20px",
   marginBottom: "50px",
-  fontSize: "14px",
-  fontFamily: "Jost, sans-serif",
+  fontSize: typography.fontSize.sm,
+  fontFamily: typography.fontFamilyBase,
   fontWeight: 600,
   cursor: "pointer",
+
   selectors: {
     "&:disabled": {
       opacity: 0.5,
       cursor: "default",
     },
   },
+
   "@media": {
     [tabletBreakpoint]: {
       width: "300px",
-      fontSize: "16px",
+      fontSize: typography.fontSize.sm,
     },
   },
 });
@@ -208,13 +223,14 @@ export const contactFormButton = contactFormButtonBase;
 
 export const contactFormButtonFeedback = style([
   contactFormButtonBase,
+
   {
-    marginBottom: 0,
-    fontSize: "18px",
+    marginBottom: spacing.none,
+    fontSize: typography.fontSize.md,
     "@media": {
       [tabletBreakpoint]: {
-        fontSize: "18px",
-        marginBottom: 0,
+        fontSize: typography.fontSize.md,
+        marginBottom: spacing.none,
       },
     },
   },
@@ -222,11 +238,11 @@ export const contactFormButtonFeedback = style([
 
 export const overlay = style({
   position: "fixed",
-  top: 0,
-  left: 0,
+  top: spacing.none,
+  left: spacing.none,
   width: "100%",
   height: "100%",
-  background: colors.black2,
+  background: colors.blackAlpha50,
   zIndex: 10,
 });
 
@@ -238,7 +254,7 @@ const easeIn = keyframes({
 export const feedbackContainer = style({
   display: "flex",
   justifyContent: "center",
-  backgroundColor: colors.white1,
+  backgroundColor: colors.white,
   width: "90%",
   position: "fixed",
   transform: "translate(-50%, -50%)",
@@ -247,6 +263,7 @@ export const feedbackContainer = style({
   left: "50%",
   borderRadius: "10px",
   animation: `${easeIn} 0.5s ease-out`,
+
   "@media": {
     [tabletBreakpoint]: {
       width: "fit-content",
@@ -256,8 +273,8 @@ export const feedbackContainer = style({
 
 export const loaderContainer = style({
   position: "fixed",
-  top: 0,
-  left: 0,
+  top: spacing.none,
+  left: spacing.none,
   width: "100%",
   height: "100%",
   display: "flex",
@@ -267,13 +284,14 @@ export const loaderContainer = style({
 
 const spin = keyframes({
   "0%": { transform: "rotate(0deg)" },
+
   "100%": { transform: "rotate(360deg)" },
 });
 
 export const loader = style({
-  border: `16px solid ${colors.white1}`,
+  border: `16px solid ${colors.white}`,
   borderRadius: "50%",
-  borderTop: `16px solid ${colors.lightBlue}`,
+  borderTop: `16px solid ${colors.brandPrimary}`,
   width: "120px",
   height: "120px",
   animation: `${spin} 2s linear infinite`,

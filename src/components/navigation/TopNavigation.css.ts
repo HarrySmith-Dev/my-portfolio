@@ -1,10 +1,11 @@
 import { style } from "@vanilla-extract/css";
 
-import { colors } from "../../styles/shared";
+import { colors, typography } from "../../styles/shared";
 import { desktopBreakpoint } from "../../styles/global.css";
 
 export const navigationContainer = style({
   margin: "50px auto 0",
+
   "@media": {
     [desktopBreakpoint]: {
       maxWidth: "1024px",
@@ -20,6 +21,7 @@ export const navigationContentWrapper = style({
   marginBottom: "100px",
   justifyContent: "center",
   alignItems: "center",
+
   "@media": {
     [desktopBreakpoint]: {
       justifyContent: "flex-start",
@@ -40,6 +42,7 @@ export const navigationLogo = style({
   objectFit: "cover",
   borderRadius: "50%",
   margin: "30px 0",
+
   "@media": {
     [desktopBreakpoint]: {
       margin: "0 50px 0 0",
@@ -49,6 +52,7 @@ export const navigationLogo = style({
 
 export const navigationItemsContainer = style({
   display: "flex",
+
   "@media": {
     [desktopBreakpoint]: {
       flexDirection: "column",
@@ -62,15 +66,16 @@ export const navigationLinkTextContainer = style({
 
 export const navigationLinkText = style({
   margin: 0,
-  fontSize: "30px",
-  fontFamily: "Jost, sans-serif",
-  color: colors.gray3,
+  fontSize: typography.fontSize.xxl,
+  fontFamily: typography.fontFamilyBase,
+  color: colors.slate800,
   padding: 0,
   fontWeight: 500,
 });
 
 export const navigationLinksContainer = style({
   display: "none",
+
   "@media": {
     [desktopBreakpoint]: {
       display: "flex",
@@ -86,6 +91,7 @@ export const navigationLinksContainer = style({
 
 export const navigationLinksWrapper = style({
   textDecoration: "none",
+
   selectors: {
     "&:not(:first-child)": {
       margin: "0 0 0 20px",
@@ -102,20 +108,21 @@ export const navigationLinks = style({
 });
 
 export const navigationLabel = style({
-  fontFamily: "Jost, sans-serif",
-  fontSize: "20px",
+  fontFamily: typography.fontFamilyBase,
+  fontSize: typography.fontSize.lg,
   letterSpacing: 0,
-  lineHeight: "normal",
+  lineHeight: typography.lineHeight.normal,
   cursor: "pointer",
   margin: 0,
-  color: colors.gray1,
+  color: colors.slate500,
+
   selectors: {
     "&:hover": {
-      color: colors.lightBlue,
+      color: colors.brandPrimary,
     },
   },
 });
 
 export const navigationLabelActive = style({
-  color: colors.lightBlue,
+  color: colors.brandPrimary,
 });
