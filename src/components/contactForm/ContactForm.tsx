@@ -1,4 +1,4 @@
-import React, { type ReactNode, useState } from "react";
+import { type ReactNode, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { sendContactEmail } from "../../utils/emailService";
@@ -32,7 +32,7 @@ export type FormInput = {
   message: string;
 };
 
-const ContactForm: React.FC = () => {
+const ContactForm = () => {
   const [feedback, setFeedback] = useState<ReactNode | null>(null);
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
 

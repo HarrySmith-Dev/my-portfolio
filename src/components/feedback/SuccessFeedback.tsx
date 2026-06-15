@@ -1,5 +1,3 @@
-import React from "react";
-
 import { contactFormButtonFeedback } from "../contactForm/ContactForm.css";
 import { feedbackHeader, feedbackText, feedbackWrapper } from "./Feedback.css";
 

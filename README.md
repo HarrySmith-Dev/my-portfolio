@@ -31,4 +31,3 @@ VITE_TEMPLATE_ID=your_emailjs_template_id
 ## Styling
 
 Component styles live in `.css.ts` files generated with vanilla-extract. Global tokens and breakpoints can be found in `src/styles`.
-

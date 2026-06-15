@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   footerBackgroundContainer,
   footerContainer,
@@ -9,11 +7,13 @@ import {
   footerTextContainer,
 } from "./Footer.css";
 
+const currentYear = new Date().getFullYear();
+
 const Footer = () => (
   <footer className={footerBackgroundContainer}>
     <div className={footerContainer}>
       <div className={footerTextContainer}>
-        <p className={footerText}>&copy; 2026 Harry Smith.</p>
+        <p className={footerText}>&copy; {currentYear} Harry Smith.</p>
         <p className={footerText}>
           Built with{" "}
           <a

@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 
-import LogoIcon from "../../assets/NavImage.png";
+import LogoIcon from "../../assets/NavImage.jpeg";
 import navigationLinksData from "./navigationLinks";
 import {
   navigationContainer,
