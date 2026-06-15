@@ -9,21 +9,18 @@ It is designed to be fast, clean, and easy to maintain while showcasing my proje
 - React 19
 - TypeScript
 - Vite
-- React Router
-- vanilla-extract
+- Vanilla-extract
 - EmailJS
 
 ## Quick Start
 
 ```bash
 yarn install
-cp .env.example .env
 yarn develop
 ```
 
 ## Scripts
 
-- `yarn start` - run the Vite dev server
 - `yarn develop` - alias for dev server
 - `yarn build` - run TypeScript checks and build production assets
 - `yarn preview` - preview the production build locally
