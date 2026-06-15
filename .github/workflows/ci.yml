@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: 'Build 🚀'
+  required_ci:
+    name: 'required-ci'
     runs-on: ubuntu-latest
 
     steps:
