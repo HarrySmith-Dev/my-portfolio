@@ -5,7 +5,7 @@ import { desktopBreakpoint, tabletBreakpoint } from '../../styles/global.css'
 
 export const footerBackgroundContainer = style({
   margin: '0 20px',
-  paddingBottom: '96px',
+  paddingBottom: '94px',
 
   '@media': {
     [desktopBreakpoint]: {
