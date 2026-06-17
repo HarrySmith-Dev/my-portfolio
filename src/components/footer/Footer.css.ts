@@ -4,15 +4,21 @@ import { colors, typography } from '../../styles/shared'
 import { desktopBreakpoint, tabletBreakpoint } from '../../styles/global.css'
 
 export const footerBackgroundContainer = style({
-  margin: '0 20px 50px',
+  margin: '0 20px',
+  paddingBottom: '96px',
+
+  '@media': {
+    [desktopBreakpoint]: {
+      margin: '0 20px 50px',
+      paddingBottom: 0,
+    },
+  },
 })
 
 export const footerContainer = style({
   borderTop: `2px solid ${colors.grayLight}`,
   margin: '0 auto',
   width: '100%',
-  position: 'sticky',
-  bottom: 0,
   '@media': {
     [desktopBreakpoint]: {
       maxWidth: '1024px',

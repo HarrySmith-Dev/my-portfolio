@@ -7,6 +7,7 @@ export const bottomNavigationContainer = style({
   width: '100%',
   position: 'fixed',
   bottom: 0,
+  paddingBottom: 'env(safe-area-inset-bottom)',
   backgroundColor: colors.white,
   boxShadow: shadows.bottomNav,
   zIndex: 2,
