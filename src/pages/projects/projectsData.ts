@@ -1,5 +1,5 @@
-import GlutenFreeAndMeImage from '../../assets/projects/gluten-free-and-me.webp'
-import type { ProjectData } from '../../types/SharedTypes'
+import GlutenFreeAndMeImage from '@/assets/projects/gluten-free-and-me.webp'
+import type { ProjectData } from '@/types/SharedTypes'
 
 const projectsData: ProjectData[] = [
   {
@@ -15,8 +15,6 @@ const projectsData: ProjectData[] = [
       },
     ],
     imageSrc: GlutenFreeAndMeImage,
-    imageAlt:
-      'Gluten Free & Me home page, showing a map of central London next to an introduction to coeliac disease',
   },
 ]
 

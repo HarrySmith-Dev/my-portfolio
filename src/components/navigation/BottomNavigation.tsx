@@ -7,18 +7,14 @@ import {
   bottomNavigationLinks,
   bottomNavigationLinksActive,
   bottomNavigationLinksContainer,
-  bottomNavigationListItem,
 } from './BottomNavigation.css'
 import navigationLinksData from './navigationLinks'
 
 const BottomNavigation = () => (
-  <nav className={bottomNavigationContainer}>
+  <nav className={bottomNavigationContainer} aria-label="Main">
     <ul className={bottomNavigationLinksContainer}>
       {navigationLinksData.map(({ url, label, iconSrc }) => (
-        <li
-          className={bottomNavigationListItem}
-          key={`${label}-bottom-navigation`}
-        >
+        <li key={url}>
           <NavLink
             to={url}
             end={url === '/'}
@@ -29,7 +25,7 @@ const BottomNavigation = () => (
                 {iconSrc && (
                   <img className={bottomNavigationIcon} src={iconSrc} alt="" />
                 )}
-                <p
+                <span
                   className={
                     isActive
                       ? bottomNavigationLinksActive
@@ -37,7 +33,7 @@ const BottomNavigation = () => (
                   }
                 >
                   {label}
-                </p>
+                </span>
               </>
             )}
           </NavLink>

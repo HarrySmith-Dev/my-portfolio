@@ -1,7 +1,5 @@
 import { lazy, Suspense, useRef } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/react'
 
 import Footer from './components/footer/Footer'
 import BottomNavigation from './components/navigation/BottomNavigation'
@@ -12,7 +10,6 @@ import NotFound from './pages/notFound/NotFound'
 import Projects from './pages/projects/Projects'
 import { mainContent, skipLink } from './styles/shared.css'
 
-// EmailJS and react-hook-form are only needed on this page
 const Contact = lazy(() => import('./pages/contact/Contact'))
 
 const App = () => {
@@ -49,8 +46,6 @@ const App = () => {
       </main>
       <BottomNavigation />
       <Footer />
-      <Analytics />
-      <SpeedInsights />
     </>
   )
 }

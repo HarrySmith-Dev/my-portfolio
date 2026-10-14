@@ -1,4 +1,6 @@
-import type { ProjectData } from '../../types/SharedTypes'
+import ExternalLink from '@/components/externalLink/ExternalLink'
+import { bodyText, card, cardBody, cardTitle } from '@/styles/shared.css'
+import type { ProjectData } from '@/types/SharedTypes'
 import {
   projectCardContainer,
   projectCardContent,
@@ -8,7 +10,6 @@ import {
   projectCardLinks,
   projectCardTag,
   projectCardTags,
-  projectCardTitle,
   projectCardTitleLink,
 } from './ProjectCard.css'
 
@@ -21,34 +22,31 @@ const ProjectCard = ({
   imageSrc,
   imageAlt = '',
 }: ProjectData) => (
-  <article className={projectCardContainer}>
+  <article className={`${card} ${projectCardContainer}`}>
     {imageSrc && (
       <img
         className={projectCardImage}
         src={imageSrc}
         alt={imageAlt}
-        width={1280}
-        height={720}
-        loading="lazy"
+        width={1200}
+        height={630}
       />
     )}
-    <div className={projectCardContent}>
-      <h2 className={projectCardTitle}>
+    <div className={`${cardBody} ${projectCardContent}`}>
+      <h2 className={cardTitle}>
         {url ? (
-          <a
+          <ExternalLink
             className={projectCardTitleLink}
             data-card-link
             href={url}
-            rel="noreferrer"
-            target="_blank"
           >
             {title}
-          </a>
+          </ExternalLink>
         ) : (
           title
         )}
       </h2>
-      <p className={projectCardDescription}>{description}</p>
+      <p className={`${bodyText} ${projectCardDescription}`}>{description}</p>
       <ul className={projectCardTags} aria-label="Tech stack">
         {techStack.map((tech) => (
           <li className={projectCardTag} key={tech}>
@@ -58,15 +56,9 @@ const ProjectCard = ({
       </ul>
       <div className={projectCardLinks}>
         {links.map(({ label, url }) => (
-          <a
-            className={projectCardLink}
-            href={url}
-            key={url}
-            rel="noreferrer"
-            target="_blank"
-          >
+          <ExternalLink className={projectCardLink} href={url} key={url}>
             {label}
-          </a>
+          </ExternalLink>
         ))}
       </div>
     </div>

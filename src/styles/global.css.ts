@@ -1,9 +1,22 @@
 import { globalStyle } from '@vanilla-extract/css'
 import { colors, typography } from './shared'
 
-globalStyle('html, body, #root', {
+globalStyle('html, body', {
   height: '100%',
-  scrollBehavior: 'smooth',
+})
+
+globalStyle('#root', {
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100%',
+})
+
+globalStyle('html', {
+  '@media': {
+    '(prefers-reduced-motion: no-preference)': {
+      scrollBehavior: 'smooth',
+    },
+  },
 })
 
 globalStyle('body', {
@@ -22,7 +35,3 @@ globalStyle('*, *::before, *::after', {
 globalStyle('input, textarea, button, select', {
   font: 'inherit',
 })
-
-export const mobileBreakpoint = `screen and (min-width: 600px)`
-export const tabletBreakpoint = `screen and (min-width: 768px)`
-export const desktopBreakpoint = `screen and (min-width: 1024px)`

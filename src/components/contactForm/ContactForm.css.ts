@@ -1,46 +1,21 @@
 import { keyframes, style } from '@vanilla-extract/css'
 
-import { colors, spacing, typography } from '../../styles/shared'
-import { tabletBreakpoint } from '../../styles/global.css'
+import {
+  colors,
+  radii,
+  spacing,
+  tabletBreakpoint,
+  typography,
+} from '@/styles/shared'
 
-export const contactFormContainer = style({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  margin: '0 20px',
-
-  '@media': {
-    [tabletBreakpoint]: {
-      maxWidth: '700px',
-      margin: '0 auto',
-    },
-  },
-})
-
-export const contactText = style({
-  fontSize: typography.fontSize.lg,
-  fontWeight: 400,
-  color: colors.slate700,
-  lineHeight: typography.lineHeight.normal,
-  letterSpacing: 0,
-  margin: '0 0 10px 0',
-
-  '@media': {
-    [tabletBreakpoint]: {
-      fontSize: typography.fontSize.xl,
-    },
-  },
+export const contactFormCard = style({
+  marginTop: spacing[8],
 })
 
 export const contactRequiredNote = style({
   fontSize: typography.fontSize.sm,
   color: colors.slate700,
-  margin: '0 0 40px 0',
-})
-
-export const form = style({
-  width: '100%',
-  margin: '0 20px',
+  margin: `0 0 ${spacing[6]}`,
 })
 
 export const fieldset = style({
@@ -51,13 +26,13 @@ export const fieldset = style({
 })
 
 export const contactFormFieldWrapper = style({
-  display: 'flex',
-  flexDirection: 'column',
+  display: 'grid',
+  gridTemplateColumns: '1fr',
 
   '@media': {
     [tabletBreakpoint]: {
-      flexDirection: 'row',
-      gap: '30px',
+      gridTemplateColumns: '1fr 1fr',
+      columnGap: spacing[6],
     },
   },
 })
@@ -65,13 +40,12 @@ export const contactFormFieldWrapper = style({
 export const contactFormField = style({
   display: 'flex',
   flexDirection: 'column',
-  marginBottom: '30px',
+  marginBottom: spacing[6],
 })
 
 export const contactFormLabel = style({
-  fontWeight: 400,
   color: colors.slate800,
-  marginBottom: '10px',
+  marginBottom: spacing[2],
   fontSize: typography.fontSize.sm,
 
   '@media': {
@@ -88,9 +62,11 @@ export const contactFormLabelSpan = style({
 })
 
 const fieldBase = style({
-  padding: '5px',
-  borderRadius: '10px',
+  width: '100%',
+  padding: `${spacing[2]} ${spacing[3]}`,
+  borderRadius: radii.md,
   border: `1px solid ${colors.blueGray200}`,
+  backgroundColor: colors.white,
   fontSize: typography.fontSize.sm,
   transition: 'border-color 0.2s ease',
 
@@ -107,18 +83,18 @@ const fieldBase = style({
       outlineColor: colors.danger,
     },
   },
+
+  '@media': {
+    [tabletBreakpoint]: {
+      fontSize: typography.fontSize.md,
+    },
+  },
 })
 
 export const contactFormInput = style([
   fieldBase,
   {
-    height: '43px',
-
-    '@media': {
-      [tabletBreakpoint]: {
-        width: '320px',
-      },
-    },
+    minHeight: spacing[12],
   },
 ])
 
@@ -127,32 +103,19 @@ export const contactFormTextArea = style([
   {
     minHeight: '160px',
     resize: 'vertical',
-
-    '@media': {
-      [tabletBreakpoint]: {
-        width: '675px',
-        padding: spacing.xs,
-        fontSize: typography.fontSize.md,
-      },
-    },
   },
 ])
 
 export const contactFormErrorText = style({
   fontSize: typography.fontSize.xs,
   color: colors.danger,
-  fontWeight: 400,
-  margin: '5px 0 0 0',
+  margin: `${spacing[1]} 0 0`,
 
   '@media': {
     [tabletBreakpoint]: {
       fontSize: typography.fontSize.sm,
     },
   },
-})
-
-export const contactFormButton = style({
-  marginBottom: '50px',
 })
 
 export const overlay = style({
@@ -172,11 +135,17 @@ const spin = keyframes({
 
 export const loader = style({
   border: `16px solid ${colors.white}`,
-  borderRadius: '50%',
+  borderRadius: radii.round,
   borderTop: `16px solid ${colors.brandPrimary}`,
   width: '120px',
   height: '120px',
   animation: `${spin} 2s linear infinite`,
+
+  '@media': {
+    '(prefers-reduced-motion: reduce)': {
+      animationDuration: '6s',
+    },
+  },
 })
 
 const easeIn = keyframes({
@@ -185,12 +154,10 @@ const easeIn = keyframes({
 })
 
 export const feedbackDialog = style({
-  backgroundColor: colors.white,
   width: '90%',
-  maxWidth: '500px',
+  maxWidth: '480px',
   padding: 0,
   border: 'none',
-  borderRadius: '10px',
   animation: `${easeIn} 0.5s ease-out`,
 
   selectors: {
@@ -200,8 +167,8 @@ export const feedbackDialog = style({
   },
 
   '@media': {
-    [tabletBreakpoint]: {
-      width: 'fit-content',
+    '(prefers-reduced-motion: reduce)': {
+      animation: 'none',
     },
   },
 })

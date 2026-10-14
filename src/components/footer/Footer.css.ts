@@ -1,39 +1,38 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, layout, typography } from '../../styles/shared'
-import { desktopBreakpoint, tabletBreakpoint } from '../../styles/global.css'
+import {
+  colors,
+  desktopBreakpoint,
+  layout,
+  spacing,
+  tabletBreakpoint,
+  typography,
+} from '@/styles/shared'
+import { contentWidth, textLink } from '@/styles/shared.css'
 
-export const footerBackgroundContainer = style({
-  margin: '0 20px',
-  paddingBottom: '94px',
+export const footerBackgroundContainer = style([
+  contentWidth,
+  {
+    paddingBottom: `calc(${layout.bottomNavHeight} + env(safe-area-inset-bottom))`,
 
-  '@media': {
-    [desktopBreakpoint]: {
-      margin: '0 20px 50px',
-      paddingBottom: 0,
+    '@media': {
+      [desktopBreakpoint]: {
+        paddingBottom: 0,
+      },
     },
   },
-})
+])
 
 export const footerContainer = style({
-  borderTop: `2px solid ${colors.grayLight}`,
-  margin: '0 auto',
-  width: '100%',
-  '@media': {
-    [desktopBreakpoint]: {
-      maxWidth: layout.pageMaxWidth,
-    },
-  },
-})
-
-export const footerTextContainer = style({
   display: 'flex',
-  margin: '30px 0 100px',
+  flexWrap: 'wrap',
+  gap: spacing[4],
+  borderTop: `2px solid ${colors.blueGray200}`,
+  padding: `${spacing[8]} 0 ${spacing[12]}`,
 })
 
 export const footerText = style({
   fontSize: typography.fontSize.sm,
-  lineHeight: typography.lineHeight.normal,
   margin: 0,
   color: colors.slate700,
 
@@ -50,23 +49,8 @@ export const footerText = style({
   },
 })
 
-const footerLinkBase = style({
-  color: colors.brandPrimary,
-  textDecoration: 'none',
-  margin: 0,
-
-  selectors: {
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-})
-
-export const footerLink = footerLinkBase
-
-export const footerLinkPurple = style([
-  footerLinkBase,
-
+export const footerLinkVite = style([
+  textLink,
   {
     color: colors.brandVite,
   },
