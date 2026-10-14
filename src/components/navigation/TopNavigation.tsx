@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 
-import LogoIcon from '../../assets/NavImage.jpeg'
+import ProfilePhoto from '../../assets/ProfilePhoto.webp'
 import navigationLinksData from './navigationLinks'
 import {
   navigationContainer,
@@ -22,11 +22,17 @@ const TopNavigation = () => (
     <nav className={navigationContainer}>
       <div className={navigationContentWrapper}>
         <Link to="/" className={navigationLogoContainer}>
-          <img className={navigationLogo} src={LogoIcon} alt="Harry Smith" />
+          <img
+            className={navigationLogo}
+            src={ProfilePhoto}
+            alt="Harry Smith"
+            width={150}
+            height={150}
+          />
         </Link>
         <div className={navigationItemsContainer}>
           <Link to="/" className={navigationLinkTextContainer}>
-            <h1 className={navigationLinkText}>Harry Smith</h1>
+            <p className={navigationLinkText}>Harry Smith</p>
           </Link>
           <ul className={navigationLinksContainer}>
             {navigationLinksData.map(({ url, label }) => (

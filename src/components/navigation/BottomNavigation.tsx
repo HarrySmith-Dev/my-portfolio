@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import {
   bottomNavigationContainer,
   bottomNavigationContentContainer,
   bottomNavigationIcon,
   bottomNavigationLinks,
+  bottomNavigationLinksActive,
   bottomNavigationLinksContainer,
   bottomNavigationListItem,
 } from './BottomNavigation.css'
@@ -18,16 +19,28 @@ const BottomNavigation = () => (
           className={bottomNavigationListItem}
           key={`${label}-bottom-navigation`}
         >
-          <Link to={url} className={bottomNavigationContentContainer}>
-            {iconSrc && (
-              <img
-                className={bottomNavigationIcon}
-                src={iconSrc}
-                alt={`${label} icon`}
-              />
+          <NavLink
+            to={url}
+            end={url === '/'}
+            className={bottomNavigationContentContainer}
+          >
+            {({ isActive }) => (
+              <>
+                {iconSrc && (
+                  <img className={bottomNavigationIcon} src={iconSrc} alt="" />
+                )}
+                <p
+                  className={
+                    isActive
+                      ? bottomNavigationLinksActive
+                      : bottomNavigationLinks
+                  }
+                >
+                  {label}
+                </p>
+              </>
             )}
-            <p className={bottomNavigationLinks}>{label}</p>
-          </Link>
+          </NavLink>
         </li>
       ))}
     </ul>

@@ -24,7 +24,6 @@ export const comingSoonIcon = style({
 })
 
 export const comingSoonTitle = style({
-  fontFamily: typography.fontFamilyBase,
   fontSize: typography.fontSize.xl,
   lineHeight: typography.lineHeight.tight,
   letterSpacing: 0,

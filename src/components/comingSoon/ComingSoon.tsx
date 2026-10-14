@@ -15,7 +15,7 @@ const ComingSoon = () => {
 
   return (
     <section className={comingSoonContainer}>
-      <img className={comingSoonIcon} src={ProjectsIcon} alt="Projects" />
+      <img className={comingSoonIcon} src={ProjectsIcon} alt="" />
       <h1 className={comingSoonTitle}>
         {`Coming soon!${pageLabel ? ` /${pageLabel}` : ''}`}
       </h1>

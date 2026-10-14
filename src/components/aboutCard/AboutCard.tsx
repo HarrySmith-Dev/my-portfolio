@@ -9,12 +9,15 @@ import {
   aboutCardText,
 } from './AboutCard.css'
 
+const careerStartYear = 2023
+const yearsOfExperience = new Date().getFullYear() - careerStartYear
+
 const AboutCard = () => (
   <article className={aboutCardBackgroundContainer}>
     <section className={aboutCardContainer}>
       <div className={aboutCardContentWrapper}>
         <div>
-          <h2 className={aboutCardHeading}>Software Engineer</h2>
+          <h1 className={aboutCardHeading}>Software Engineer</h1>
           <p className={aboutCardSubHeadingText}>
             I build front-end applications using{' '}
             <span className={aboutCardSpan.lightBlue}>React</span>,{' '}
@@ -22,9 +25,9 @@ const AboutCard = () => (
             <span className={aboutCardSpan.orange}>AWS</span>.
           </p>
           <p className={aboutCardText}>
-            I&apos;m a London-based Software Engineer with 3 years of experience
-            scaling and delivering services for 1.5 million users at an
-            InsurTech company.
+            I&apos;m a London-based Software Engineer with {yearsOfExperience}{' '}
+            years of experience scaling and delivering services for 1.5 million
+            users at an InsurTech company.
           </p>
           <p className={aboutCardText}>
             Check out my{' '}

@@ -1,6 +1,12 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 
-import { colors, shadows, spacing, typography } from '../../styles/shared'
+import {
+  colors,
+  layout,
+  shadows,
+  spacing,
+  typography,
+} from '../../styles/shared'
 import { desktopBreakpoint, tabletBreakpoint } from '../../styles/global.css'
 
 export const aboutCardBackgroundContainer = style({
@@ -15,7 +21,7 @@ export const aboutCardContainer = style({
   marginBottom: '100px',
   '@media': {
     [desktopBreakpoint]: {
-      maxWidth: '1024px',
+      maxWidth: layout.pageMaxWidth,
       margin: '0 auto 100px',
     },
   },
@@ -27,7 +33,6 @@ export const aboutCardContentWrapper = style({
 
 export const aboutCardHeading = style({
   fontSize: typography.fontSize.hero,
-  fontFamily: typography.fontFamilyBase,
   lineHeight: typography.lineHeight.tight,
   letterSpacing: 0,
   fontWeight: 400,
@@ -42,7 +47,6 @@ export const aboutCardHeading = style({
 })
 
 const aboutCardTextBase = style({
-  fontFamily: typography.fontFamilyBase,
   color: colors.slate700,
   lineHeight: typography.lineHeight.normal,
   letterSpacing: 0,
@@ -88,7 +92,6 @@ export type AboutCardSpanColor = keyof typeof aboutCardSpan
 
 export const aboutCardLink = style({
   fontSize: typography.fontSize.md,
-  fontFamily: typography.fontFamilyBase,
   color: colors.brandPrimary,
   lineHeight: typography.lineHeight.normal,
   letterSpacing: 0,

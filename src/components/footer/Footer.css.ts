@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, typography } from '../../styles/shared'
+import { colors, layout, typography } from '../../styles/shared'
 import { desktopBreakpoint, tabletBreakpoint } from '../../styles/global.css'
 
 export const footerBackgroundContainer = style({
@@ -21,7 +21,7 @@ export const footerContainer = style({
   width: '100%',
   '@media': {
     [desktopBreakpoint]: {
-      maxWidth: '1024px',
+      maxWidth: layout.pageMaxWidth,
     },
   },
 })
@@ -32,7 +32,6 @@ export const footerTextContainer = style({
 })
 
 export const footerText = style({
-  fontFamily: typography.fontFamilyBase,
   fontSize: typography.fontSize.sm,
   lineHeight: typography.lineHeight.normal,
   margin: 0,
