@@ -1,61 +1,66 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, layout, typography } from '@/styles/shared'
-import { desktopBreakpoint } from '@/styles/global.css'
+import {
+  colors,
+  desktopBreakpoint,
+  radii,
+  spacing,
+  typography,
+} from '@/styles/shared'
+import { contentWidth } from '@/styles/shared.css'
 
-export const navigationContainer = style({
-  margin: '50px auto 0',
+export const navigationContainer = style([
+  contentWidth,
+  {
+    paddingTop: spacing[12],
+    paddingBottom: spacing[10],
 
-  '@media': {
-    [desktopBreakpoint]: {
-      maxWidth: layout.pageMaxWidth,
-      marginTop: '70px',
+    '@media': {
+      [desktopBreakpoint]: {
+        paddingTop: spacing[16],
+      },
     },
   },
-})
+])
 
 export const navigationContentWrapper = style({
   display: 'flex',
   flexDirection: 'column',
-  height: '150px',
-  marginBottom: '100px',
-  justifyContent: 'center',
   alignItems: 'center',
 
   '@media': {
     [desktopBreakpoint]: {
-      justifyContent: 'flex-start',
       flexDirection: 'row',
-      margin: '0 30px 40px',
     },
   },
 })
 
 export const navigationLogoContainer = style({
   display: 'flex',
-  textDecoration: 'none',
 })
 
 export const navigationLogo = style({
   width: '150px',
   height: '150px',
   objectFit: 'cover',
-  borderRadius: '50%',
-  margin: '30px 0',
+  borderRadius: radii.round,
+  margin: `0 0 ${spacing[4]}`,
 
   '@media': {
     [desktopBreakpoint]: {
-      margin: '0 50px 0 0',
+      margin: `0 ${spacing[12]} 0 0`,
     },
   },
 })
 
 export const navigationItemsContainer = style({
   display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 
   '@media': {
     [desktopBreakpoint]: {
-      flexDirection: 'column',
+      alignItems: 'flex-start',
     },
   },
 })
@@ -65,11 +70,9 @@ export const navigationLinkTextContainer = style({
 })
 
 export const navigationLinkText = style({
-  margin: 0,
   fontSize: typography.fontSize.xxl,
-  color: colors.slate800,
-  padding: 0,
   fontWeight: 500,
+  color: colors.slate800,
 })
 
 export const navigationLinksContainer = style({
@@ -78,49 +81,32 @@ export const navigationLinksContainer = style({
   '@media': {
     [desktopBreakpoint]: {
       display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
+      gap: spacing[8],
       listStyleType: 'none',
-      cursor: 'pointer',
       padding: 0,
-      margin: '30px 0 0',
-    },
-  },
-})
-
-export const navigationLinksWrapper = style({
-  textDecoration: 'none',
-
-  selectors: {
-    '&:not(:first-child)': {
-      margin: '0 0 0 20px',
+      margin: `${spacing[4]} 0 0`,
     },
   },
 })
 
 export const navigationLinks = style({
-  display: 'flex',
-  alignItems: 'center',
-  marginRight: '20px',
   textDecoration: 'none',
-  height: '24px',
 })
 
 export const navigationLabel = style({
   fontSize: typography.fontSize.lg,
-  letterSpacing: 0,
-  lineHeight: typography.lineHeight.normal,
-  cursor: 'pointer',
-  margin: 0,
   color: colors.slate600,
 
   selectors: {
-    '&:hover': {
+    [`${navigationLinks}:hover &`]: {
       color: colors.brandPrimary,
     },
   },
 })
 
-export const navigationLabelActive = style({
-  color: colors.brandPrimary,
-})
+export const navigationLabelActive = style([
+  navigationLabel,
+  {
+    color: colors.brandPrimary,
+  },
+])

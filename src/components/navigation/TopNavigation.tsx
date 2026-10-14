@@ -9,7 +9,6 @@ import {
   navigationLabel,
   navigationLinks,
   navigationLinksContainer,
-  navigationLinksWrapper,
   navigationLinkText,
   navigationLinkTextContainer,
   navigationLogo,
@@ -32,26 +31,20 @@ const TopNavigation = () => (
         </Link>
         <div className={navigationItemsContainer}>
           <Link to="/" className={navigationLinkTextContainer}>
-            <p className={navigationLinkText}>Harry Smith</p>
+            <span className={navigationLinkText}>Harry Smith</span>
           </Link>
           <ul className={navigationLinksContainer}>
             {navigationLinksData.map(({ url, label }) => (
-              <li
-                className={navigationLinksWrapper}
-                key={`${label}-top-navigation`}
-              >
+              <li key={`${label}-top-navigation`}>
                 <NavLink to={url} end={url === '/'} className={navigationLinks}>
                   {({ isActive }) => (
-                    <p
-                      className={[
-                        navigationLabel,
-                        isActive ? navigationLabelActive : '',
-                      ]
-                        .filter(Boolean)
-                        .join(' ')}
+                    <span
+                      className={
+                        isActive ? navigationLabelActive : navigationLabel
+                      }
                     >
                       {label}
-                    </p>
+                    </span>
                   )}
                 </NavLink>
               </li>

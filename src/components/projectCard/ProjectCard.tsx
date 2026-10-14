@@ -1,3 +1,4 @@
+import { bodyText, card, cardBody, cardTitle } from '@/styles/shared.css'
 import type { ProjectData } from '@/types/SharedTypes'
 import {
   projectCardContainer,
@@ -8,7 +9,6 @@ import {
   projectCardLinks,
   projectCardTag,
   projectCardTags,
-  projectCardTitle,
   projectCardTitleLink,
 } from './ProjectCard.css'
 
@@ -21,7 +21,7 @@ const ProjectCard = ({
   imageSrc,
   imageAlt = '',
 }: ProjectData) => (
-  <article className={projectCardContainer}>
+  <article className={`${card} ${projectCardContainer}`}>
     {imageSrc && (
       <img
         className={projectCardImage}
@@ -32,8 +32,8 @@ const ProjectCard = ({
         loading="lazy"
       />
     )}
-    <div className={projectCardContent}>
-      <h2 className={projectCardTitle}>
+    <div className={`${cardBody} ${projectCardContent}`}>
+      <h2 className={cardTitle}>
         {url ? (
           <a
             className={projectCardTitleLink}
@@ -48,7 +48,7 @@ const ProjectCard = ({
           title
         )}
       </h2>
-      <p className={projectCardDescription}>{description}</p>
+      <p className={`${bodyText} ${projectCardDescription}`}>{description}</p>
       <ul className={projectCardTags} aria-label="Tech stack">
         {techStack.map((tech) => (
           <li className={projectCardTag} key={tech}>

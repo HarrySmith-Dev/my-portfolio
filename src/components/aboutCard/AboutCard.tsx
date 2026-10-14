@@ -1,59 +1,52 @@
 import {
-  aboutCardBackgroundContainer,
-  aboutCardContainer,
-  aboutCardContentWrapper,
-  aboutCardHeading,
-  aboutCardLink,
-  aboutCardSpan,
-  aboutCardSubHeadingText,
-  aboutCardText,
-} from './AboutCard.css'
+  bodyText,
+  card,
+  cardBody,
+  leadText,
+  pageHeading,
+  textLink,
+} from '@/styles/shared.css'
+import { aboutCardSpan } from './AboutCard.css'
 
 const careerStartYear = 2023
 const yearsOfExperience = new Date().getFullYear() - careerStartYear
 
 const AboutCard = () => (
-  <article className={aboutCardBackgroundContainer}>
-    <section className={aboutCardContainer}>
-      <div className={aboutCardContentWrapper}>
-        <div>
-          <h1 className={aboutCardHeading}>Software Engineer</h1>
-          <p className={aboutCardSubHeadingText}>
-            I build front-end applications using{' '}
-            <span className={aboutCardSpan.lightBlue}>React</span>,{' '}
-            <span className={aboutCardSpan.darkBlue}>TypeScript</span>, and{' '}
-            <span className={aboutCardSpan.orange}>AWS</span>.
-          </p>
-          <p className={aboutCardText}>
-            I&apos;m a London-based Software Engineer with {yearsOfExperience}{' '}
-            years of experience scaling and delivering services for 1.5 million
-            users at an InsurTech company.
-          </p>
-          <p className={aboutCardText}>
-            Check out my{' '}
-            <a
-              className={aboutCardLink}
-              href="https://github.com/HarrySmith-Dev/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              GitHub
-            </a>{' '}
-            and{' '}
-            <a
-              className={aboutCardLink}
-              href="https://www.linkedin.com/in/harry-smith-software-developer/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              LinkedIn
-            </a>
-            .
-          </p>
-        </div>
-      </div>
-    </section>
-  </article>
+  <section className={`${card} ${cardBody}`}>
+    <h1 className={pageHeading}>Software Engineer</h1>
+    <p className={leadText}>
+      I build front-end applications using{' '}
+      <span className={aboutCardSpan.lightBlue}>React</span>,{' '}
+      <span className={aboutCardSpan.darkBlue}>TypeScript</span>, and{' '}
+      <span className={aboutCardSpan.orange}>AWS</span>.
+    </p>
+    <p className={bodyText}>
+      I&apos;m a London-based Software Engineer with {yearsOfExperience} years
+      of experience scaling and delivering services for 1.5 million users at an
+      InsurTech company.
+    </p>
+    <p className={bodyText}>
+      Check out my{' '}
+      <a
+        className={textLink}
+        href="https://github.com/HarrySmith-Dev/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        GitHub
+      </a>{' '}
+      and{' '}
+      <a
+        className={textLink}
+        href="https://www.linkedin.com/in/harry-smith-software-developer/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        LinkedIn
+      </a>
+      .
+    </p>
+  </section>
 )
 
 export default AboutCard

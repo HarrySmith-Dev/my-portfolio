@@ -1,10 +1,9 @@
+import { textLink } from '@/styles/shared.css'
 import {
   footerBackgroundContainer,
   footerContainer,
-  footerLink,
-  footerLinkPurple,
+  footerLinkVite,
   footerText,
-  footerTextContainer,
 } from './Footer.css'
 
 const currentYear = new Date().getFullYear()
@@ -12,30 +11,28 @@ const currentYear = new Date().getFullYear()
 const Footer = () => (
   <footer className={footerBackgroundContainer}>
     <div className={footerContainer}>
-      <div className={footerTextContainer}>
-        <p className={footerText}>&copy; {currentYear} Harry Smith.</p>
-        <p className={footerText}>
-          Built with{' '}
-          <a
-            target="_blank"
-            href="https://vitejs.dev/"
-            rel="noreferrer"
-            className={footerLinkPurple}
-          >
-            Vite
-          </a>{' '}
-          and{' '}
-          <a
-            target="_blank"
-            href="https://react.dev/"
-            rel="noreferrer"
-            className={footerLink}
-          >
-            React
-          </a>
-          .
-        </p>
-      </div>
+      <p className={footerText}>&copy; {currentYear} Harry Smith.</p>
+      <p className={footerText}>
+        Built with{' '}
+        <a
+          target="_blank"
+          href="https://vite.dev/"
+          rel="noreferrer"
+          className={footerLinkVite}
+        >
+          Vite
+        </a>{' '}
+        and{' '}
+        <a
+          target="_blank"
+          href="https://react.dev/"
+          rel="noreferrer"
+          className={textLink}
+        >
+          React
+        </a>
+        .
+      </p>
     </div>
   </footer>
 )

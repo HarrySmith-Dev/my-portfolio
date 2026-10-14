@@ -3,7 +3,14 @@ import { colors, typography } from './shared'
 
 globalStyle('html, body, #root', {
   height: '100%',
-  scrollBehavior: 'smooth',
+})
+
+globalStyle('html', {
+  '@media': {
+    '(prefers-reduced-motion: no-preference)': {
+      scrollBehavior: 'smooth',
+    },
+  },
 })
 
 globalStyle('body', {
@@ -22,7 +29,3 @@ globalStyle('*, *::before, *::after', {
 globalStyle('input, textarea, button, select', {
   font: 'inherit',
 })
-
-export const mobileBreakpoint = `screen and (min-width: 600px)`
-export const tabletBreakpoint = `screen and (min-width: 768px)`
-export const desktopBreakpoint = `screen and (min-width: 1024px)`

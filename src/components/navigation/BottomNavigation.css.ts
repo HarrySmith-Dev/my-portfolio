@@ -1,7 +1,14 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, shadows, spacing, typography } from '@/styles/shared'
-import { desktopBreakpoint, mobileBreakpoint } from '@/styles/global.css'
+import {
+  colors,
+  desktopBreakpoint,
+  layout,
+  mobileBreakpoint,
+  shadows,
+  spacing,
+  typography,
+} from '@/styles/shared'
 
 export const bottomNavigationContainer = style({
   width: '100%',
@@ -22,16 +29,16 @@ export const bottomNavigationContainer = style({
 export const bottomNavigationLinksContainer = style({
   display: 'flex',
   justifyContent: 'center',
+  alignItems: 'center',
+  gap: spacing[12],
+  height: layout.bottomNavHeight,
   listStyleType: 'none',
-  padding: spacing.none,
-})
-
-export const bottomNavigationListItem = style({
-  margin: '0 25px',
+  padding: 0,
+  margin: 0,
 
   '@media': {
     [mobileBreakpoint]: {
-      margin: '0 35px',
+      gap: spacing[16],
     },
   },
 })
@@ -46,7 +53,6 @@ export const bottomNavigationContentContainer = style({
 export const bottomNavigationLinks = style({
   fontSize: typography.fontSize.md,
   color: colors.slate700,
-  margin: spacing.none,
 })
 
 export const bottomNavigationLinksActive = style([
@@ -58,7 +64,7 @@ export const bottomNavigationLinksActive = style([
 ])
 
 export const bottomNavigationIcon = style({
-  width: '25px',
-  height: '25px',
-  marginBottom: '5px',
+  width: spacing[6],
+  height: spacing[6],
+  marginBottom: spacing[1],
 })
