@@ -2,8 +2,6 @@ import emailjs from '@emailjs/browser'
 
 import type { FormInput } from '@/types/SharedTypes'
 
-let isEmailJsInitialized = false
-
 const getEnvValue = (value: string | undefined, key: keyof ImportMetaEnv) => {
   if (!value) {
     throw new Error(`Missing EmailJS configuration: ${key}`)
@@ -11,17 +9,8 @@ const getEnvValue = (value: string | undefined, key: keyof ImportMetaEnv) => {
   return value
 }
 
-const ensureEmailJsInitialized = () => {
-  if (!isEmailJsInitialized) {
-    const apiKey = getEnvValue(import.meta.env.VITE_API_KEY, 'VITE_API_KEY')
-    emailjs.init(apiKey)
-    isEmailJsInitialized = true
-  }
-}
-
-export const sendContactEmail = async (data: FormInput) => {
-  ensureEmailJsInitialized()
-
+export const sendContactEmail = async ({ name, email, message }: FormInput) => {
+  const publicKey = getEnvValue(import.meta.env.VITE_API_KEY, 'VITE_API_KEY')
   const serviceId = getEnvValue(
     import.meta.env.VITE_SERVICE_ID,
     'VITE_SERVICE_ID',
@@ -31,14 +20,13 @@ export const sendContactEmail = async (data: FormInput) => {
     'VITE_TEMPLATE_ID',
   )
 
-  const templateParams = {
-    name: data.name,
-    email: data.email,
-    message: data.message,
-  }
-
   try {
-    return await emailjs.send(serviceId, templateId, templateParams)
+    return await emailjs.send(
+      serviceId,
+      templateId,
+      { name, email, message },
+      { publicKey },
+    )
   } catch (error) {
     throw new Error('Unable to send message right now.', { cause: error })
   }

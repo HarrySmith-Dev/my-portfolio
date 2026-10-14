@@ -1,15 +1,12 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, shadows, spacing, typography } from '@/styles/shared'
-import { tabletBreakpoint } from '@/styles/global.css'
+import { colors, radii, shadows, spacing, typography } from '@/styles/shared'
+import { textLink } from '@/styles/shared.css'
 
 export const projectCardContainer = style({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
-  backgroundColor: colors.white,
-  borderRadius: spacing.lg,
-  boxShadow: shadows.card,
   overflow: 'hidden',
   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
 
@@ -48,21 +45,6 @@ export const projectCardContent = style({
   display: 'flex',
   flexDirection: 'column',
   flexGrow: 1,
-  padding: spacing.xxl,
-})
-
-export const projectCardTitle = style({
-  fontSize: typography.fontSize.xl,
-  lineHeight: typography.lineHeight.tight,
-  fontWeight: 500,
-  color: colors.slate800,
-  margin: `0 0 ${spacing.sm}`,
-
-  '@media': {
-    [tabletBreakpoint]: {
-      fontSize: typography.fontSize.xxl,
-    },
-  },
 })
 
 export const projectCardTitleLink = style({
@@ -82,20 +64,16 @@ export const projectCardTitleLink = style({
 })
 
 export const projectCardDescription = style({
-  fontSize: typography.fontSize.md,
-  lineHeight: typography.lineHeight.normal,
-  color: colors.slate700,
-  margin: `0 0 ${spacing.lg}`,
   flexGrow: 1,
 })
 
 export const projectCardTags = style({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: spacing.xs,
+  gap: spacing[2],
   listStyleType: 'none',
-  padding: spacing.none,
-  margin: `0 0 ${spacing.xl}`,
+  padding: 0,
+  margin: `0 0 ${spacing[6]}`,
 })
 
 export const projectCardTag = style({
@@ -103,27 +81,22 @@ export const projectCardTag = style({
   color: colors.slate700,
   backgroundColor: colors.blueGray50,
   border: `1px solid ${colors.blueGray200}`,
-  borderRadius: spacing.lg,
-  padding: `${spacing.xxs} ${spacing.sm}`,
+  borderRadius: radii.pill,
+  padding: `${spacing[1]} ${spacing[3]}`,
 })
 
 export const projectCardLinks = style({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: spacing.lg,
+  gap: spacing[5],
 })
 
-export const projectCardLink = style({
-  position: 'relative',
-  zIndex: 1,
-  fontSize: typography.fontSize.md,
-  fontWeight: 500,
-  color: colors.brandPrimary,
-  textDecoration: 'none',
-
-  selectors: {
-    '&:hover': {
-      textDecoration: 'underline',
-    },
+export const projectCardLink = style([
+  textLink,
+  {
+    position: 'relative',
+    zIndex: 1,
+    fontSize: typography.fontSize.md,
+    fontWeight: 500,
   },
-})
+])

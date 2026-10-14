@@ -9,7 +9,6 @@ import {
   navigationLabel,
   navigationLinks,
   navigationLinksContainer,
-  navigationLinksWrapper,
   navigationLinkText,
   navigationLinkTextContainer,
   navigationLogo,
@@ -19,39 +18,39 @@ import {
 
 const TopNavigation = () => (
   <header>
-    <nav className={navigationContainer}>
+    <nav className={navigationContainer} aria-label="Main">
       <div className={navigationContentWrapper}>
-        <Link to="/" className={navigationLogoContainer}>
+        <Link
+          to="/"
+          className={navigationLogoContainer}
+          tabIndex={-1}
+          aria-hidden="true"
+        >
           <img
             className={navigationLogo}
             src={ProfilePhoto}
-            alt="Harry Smith"
+            alt=""
             width={150}
             height={150}
+            fetchPriority="high"
           />
         </Link>
         <div className={navigationItemsContainer}>
           <Link to="/" className={navigationLinkTextContainer}>
-            <p className={navigationLinkText}>Harry Smith</p>
+            <span className={navigationLinkText}>Harry Smith</span>
           </Link>
           <ul className={navigationLinksContainer}>
             {navigationLinksData.map(({ url, label }) => (
-              <li
-                className={navigationLinksWrapper}
-                key={`${label}-top-navigation`}
-              >
+              <li key={url}>
                 <NavLink to={url} end={url === '/'} className={navigationLinks}>
                   {({ isActive }) => (
-                    <p
-                      className={[
-                        navigationLabel,
-                        isActive ? navigationLabelActive : '',
-                      ]
-                        .filter(Boolean)
-                        .join(' ')}
+                    <span
+                      className={
+                        isActive ? navigationLabelActive : navigationLabel
+                      }
                     >
                       {label}
-                    </p>
+                    </span>
                   )}
                 </NavLink>
               </li>

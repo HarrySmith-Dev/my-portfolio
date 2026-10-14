@@ -1,13 +1,11 @@
 export const colors = {
   white: '#FFFFFF',
   blueGray50: '#F0F3FA',
+  blueGray200: '#CBD5E1',
 
   slate600: '#475569',
   slate700: '#334155',
   slate800: '#1E293B',
-
-  grayLight: '#D4D5D6',
-  blueGray200: '#CBD5E1',
 
   blackAlpha50: '#00000080',
   danger: '#C81E1E',
@@ -38,23 +36,40 @@ export const typography = {
 }
 
 export const spacing = {
-  none: '0',
-  xxs: '4px',
-  xs: '8px',
-  sm: '12px',
-  md: '16px',
+  0: '0',
+  1: '4px',
+  2: '8px',
+  3: '12px',
+  4: '16px',
+  5: '20px',
+  6: '24px',
+  8: '32px',
+  10: '40px',
+  12: '48px',
+  16: '64px',
+  24: '96px',
+}
+
+export const radii = {
+  sm: '8px',
+  md: '12px',
   lg: '20px',
-  xl: '24px',
-  xxl: '32px',
-  xxxl: '40px',
+  pill: '999px',
+  round: '50%',
 }
 
 export const shadows = {
-  card: `0 20px 25px -5px ${colors.grayLight}`,
+  card: `0 20px 25px -5px ${colors.blueGray200}`,
   cardHover: `0 28px 35px -5px ${colors.blueGray200}`,
   bottomNav: '0 -6px 24px -16px rgba(30, 41, 59, 0.35)',
 }
 
 export const layout = {
   pageMaxWidth: '1024px',
+  pageGutter: spacing[5],
+  bottomNavHeight: '72px',
 }
+
+export const mobileBreakpoint = `screen and (min-width: 600px)`
+export const tabletBreakpoint = `screen and (min-width: 768px)`
+export const desktopBreakpoint = `screen and (min-width: 1024px)`
