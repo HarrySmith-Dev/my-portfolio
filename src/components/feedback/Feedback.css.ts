@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, typography } from '../../styles/shared'
+import { colors, typography } from '@/styles/shared'
 
 export const feedbackWrapper = style({
   display: 'flex',

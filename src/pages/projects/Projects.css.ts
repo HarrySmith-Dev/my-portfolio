@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, layout, spacing, typography } from '../../styles/shared'
-import { desktopBreakpoint, tabletBreakpoint } from '../../styles/global.css'
+import { colors, layout, spacing, typography } from '@/styles/shared'
+import { desktopBreakpoint, tabletBreakpoint } from '@/styles/global.css'
 
 export const projectsContainer = style({
   margin: '0 20px 100px',

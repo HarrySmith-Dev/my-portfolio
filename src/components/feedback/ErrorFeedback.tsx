@@ -1,4 +1,4 @@
-import { buttonPrimary } from '../../styles/shared.css'
+import { buttonPrimary } from '@/styles/shared.css'
 import { feedbackHeader, feedbackText, feedbackWrapper } from './Feedback.css'
 
 const ErrorFeedback = ({ onClose }: { onClose: () => void }) => (

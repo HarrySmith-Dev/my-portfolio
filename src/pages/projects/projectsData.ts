@@ -1,5 +1,5 @@
-import GlutenFreeAndMeImage from '../../assets/projects/gluten-free-and-me.webp'
-import type { ProjectData } from '../../types/SharedTypes'
+import GlutenFreeAndMeImage from '@/assets/projects/gluten-free-and-me.webp'
+import type { ProjectData } from '@/types/SharedTypes'
 
 const projectsData: ProjectData[] = [
   {

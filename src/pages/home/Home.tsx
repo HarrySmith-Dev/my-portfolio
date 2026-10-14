@@ -1,5 +1,5 @@
-import AboutCard from '../../components/aboutCard/AboutCard'
-import { SITE_URL } from '../../constants/site'
+import AboutCard from '@/components/aboutCard/AboutCard'
+import { SITE_URL } from '@/constants/site'
 
 const Home = () => (
   <>

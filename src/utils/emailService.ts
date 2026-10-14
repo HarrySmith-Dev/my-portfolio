@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser'
 
-import type { FormInput } from '../types/SharedTypes'
+import type { FormInput } from '@/types/SharedTypes'
 
 let isEmailJsInitialized = false
 

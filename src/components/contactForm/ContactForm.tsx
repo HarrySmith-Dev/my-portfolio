@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { buttonPrimary, visuallyHidden } from '../../styles/shared.css'
-import type { FormInput } from '../../types/SharedTypes'
-import { sendContactEmail } from '../../utils/emailService'
-import ErrorFeedback from '../feedback/ErrorFeedback'
-import SuccessFeedback from '../feedback/SuccessFeedback'
+import { buttonPrimary, visuallyHidden } from '@/styles/shared.css'
+import type { FormInput } from '@/types/SharedTypes'
+import { sendContactEmail } from '@/utils/emailService'
+import ErrorFeedback from '@/components/feedback/ErrorFeedback'
+import SuccessFeedback from '@/components/feedback/SuccessFeedback'
 import {
   contactFormButton,
   contactFormContainer,

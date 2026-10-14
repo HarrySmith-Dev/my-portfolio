@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, typography } from '../../styles/shared'
-import { tabletBreakpoint } from '../../styles/global.css'
+import { colors, typography } from '@/styles/shared'
+import { tabletBreakpoint } from '@/styles/global.css'
 
 export const notFoundContainer = style({
   display: 'flex',

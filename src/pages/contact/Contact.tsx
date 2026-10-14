@@ -1,5 +1,5 @@
-import ContactForm from '../../components/contactForm/ContactForm'
-import { SITE_URL } from '../../constants/site'
+import ContactForm from '@/components/contactForm/ContactForm'
+import { SITE_URL } from '@/constants/site'
 
 const Contact = () => (
   <>

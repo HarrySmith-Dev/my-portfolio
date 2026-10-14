@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, shadows, spacing, typography } from '../../styles/shared'
-import { tabletBreakpoint } from '../../styles/global.css'
+import { colors, shadows, spacing, typography } from '@/styles/shared'
+import { tabletBreakpoint } from '@/styles/global.css'
 
 export const projectCardContainer = style({
   position: 'relative',
@@ -39,7 +39,9 @@ export const projectCardContainer = style({
 
 export const projectCardImage = style({
   width: '100%',
-  aspectRatio: '16 / 9',
+  // Overrides the height attribute so aspectRatio controls the height
+  height: 'auto',
+  aspectRatio: '16 / 7',
   objectFit: 'cover',
   display: 'block',
 })

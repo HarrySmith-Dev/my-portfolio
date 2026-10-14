@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, layout, typography } from '../../styles/shared'
-import { desktopBreakpoint, tabletBreakpoint } from '../../styles/global.css'
+import { colors, layout, typography } from '@/styles/shared'
+import { desktopBreakpoint, tabletBreakpoint } from '@/styles/global.css'
 
 export const footerBackgroundContainer = style({
   margin: '0 20px',

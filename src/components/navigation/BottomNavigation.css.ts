@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, shadows, spacing, typography } from '../../styles/shared'
-import { desktopBreakpoint, mobileBreakpoint } from '../../styles/global.css'
+import { colors, shadows, spacing, typography } from '@/styles/shared'
+import { desktopBreakpoint, mobileBreakpoint } from '@/styles/global.css'
 
 export const bottomNavigationContainer = style({
   width: '100%',

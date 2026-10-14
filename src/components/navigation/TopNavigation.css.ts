@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, layout, typography } from '../../styles/shared'
-import { desktopBreakpoint } from '../../styles/global.css'
+import { colors, layout, typography } from '@/styles/shared'
+import { desktopBreakpoint } from '@/styles/global.css'
 
 export const navigationContainer = style({
   margin: '50px auto 0',

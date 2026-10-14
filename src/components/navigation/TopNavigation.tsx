@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 
-import ProfilePhoto from '../../assets/ProfilePhoto.webp'
+import ProfilePhoto from '@/assets/ProfilePhoto.webp'
 import navigationLinksData from './navigationLinks'
 import {
   navigationContainer,

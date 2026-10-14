@@ -1,7 +1,7 @@
 import { keyframes, style } from '@vanilla-extract/css'
 
-import { colors, spacing, typography } from '../../styles/shared'
-import { tabletBreakpoint } from '../../styles/global.css'
+import { colors, spacing, typography } from '@/styles/shared'
+import { tabletBreakpoint } from '@/styles/global.css'
 
 export const contactFormContainer = style({
   display: 'flex',

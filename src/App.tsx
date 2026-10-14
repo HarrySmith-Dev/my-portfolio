@@ -1,7 +1,5 @@
 import { lazy, Suspense, useRef } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/react'
 
 import Footer from './components/footer/Footer'
 import BottomNavigation from './components/navigation/BottomNavigation'
@@ -49,8 +47,6 @@ const App = () => {
       </main>
       <BottomNavigation />
       <Footer />
-      <Analytics />
-      <SpeedInsights />
     </>
   )
 }

@@ -1,4 +1,4 @@
-import type { ProjectData } from '../../types/SharedTypes'
+import type { ProjectData } from '@/types/SharedTypes'
 import {
   projectCardContainer,
   projectCardContent,
@@ -28,7 +28,7 @@ const ProjectCard = ({
         src={imageSrc}
         alt={imageAlt}
         width={1280}
-        height={720}
+        height={560}
         loading="lazy"
       />
     )}

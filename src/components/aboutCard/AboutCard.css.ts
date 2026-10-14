@@ -1,13 +1,7 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 
-import {
-  colors,
-  layout,
-  shadows,
-  spacing,
-  typography,
-} from '../../styles/shared'
-import { desktopBreakpoint, tabletBreakpoint } from '../../styles/global.css'
+import { colors, layout, shadows, spacing, typography } from '@/styles/shared'
+import { desktopBreakpoint, tabletBreakpoint } from '@/styles/global.css'
 
 export const aboutCardBackgroundContainer = style({
   margin: '0 20px',
@@ -87,8 +81,6 @@ export const aboutCardSpan = styleVariants({
   darkBlue: [aboutCardSpanBase, { borderBottomColor: colors.brandTypeScript }],
   orange: [aboutCardSpanBase, { borderBottomColor: colors.brandAws }],
 })
-
-export type AboutCardSpanColor = keyof typeof aboutCardSpan
 
 export const aboutCardLink = style({
   fontSize: typography.fontSize.md,
