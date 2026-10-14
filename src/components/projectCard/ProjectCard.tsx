@@ -1,3 +1,4 @@
+import ExternalLink from '@/components/externalLink/ExternalLink'
 import { bodyText, card, cardBody, cardTitle } from '@/styles/shared.css'
 import type { ProjectData } from '@/types/SharedTypes'
 import {
@@ -29,21 +30,18 @@ const ProjectCard = ({
         alt={imageAlt}
         width={1200}
         height={630}
-        loading="lazy"
       />
     )}
     <div className={`${cardBody} ${projectCardContent}`}>
       <h2 className={cardTitle}>
         {url ? (
-          <a
+          <ExternalLink
             className={projectCardTitleLink}
             data-card-link
             href={url}
-            rel="noreferrer"
-            target="_blank"
           >
             {title}
-          </a>
+          </ExternalLink>
         ) : (
           title
         )}
@@ -58,15 +56,9 @@ const ProjectCard = ({
       </ul>
       <div className={projectCardLinks}>
         {links.map(({ label, url }) => (
-          <a
-            className={projectCardLink}
-            href={url}
-            key={url}
-            rel="noreferrer"
-            target="_blank"
-          >
+          <ExternalLink className={projectCardLink} href={url} key={url}>
             {label}
-          </a>
+          </ExternalLink>
         ))}
       </div>
     </div>

@@ -1,8 +1,14 @@
 import { globalStyle } from '@vanilla-extract/css'
 import { colors, typography } from './shared'
 
-globalStyle('html, body, #root', {
+globalStyle('html, body', {
   height: '100%',
+})
+
+globalStyle('#root', {
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100%',
 })
 
 globalStyle('html', {

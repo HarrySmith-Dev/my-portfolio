@@ -42,6 +42,8 @@ export const cardBody = style({
 })
 
 export const mainContent = style({
+  flexGrow: 1,
+
   selectors: {
     '&:focus': {
       outline: 'none',

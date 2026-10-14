@@ -1,3 +1,4 @@
+import ExternalLink from '@/components/externalLink/ExternalLink'
 import {
   bodyText,
   card,
@@ -27,23 +28,19 @@ const AboutCard = () => (
     </p>
     <p className={bodyText}>
       Check out my{' '}
-      <a
+      <ExternalLink
         className={textLink}
         href="https://github.com/HarrySmith-Dev/"
-        rel="noreferrer"
-        target="_blank"
       >
         GitHub
-      </a>{' '}
+      </ExternalLink>{' '}
       and{' '}
-      <a
+      <ExternalLink
         className={textLink}
         href="https://www.linkedin.com/in/harry-smith-software-developer/"
-        rel="noreferrer"
-        target="_blank"
       >
         LinkedIn
-      </a>
+      </ExternalLink>
       .
     </p>
   </section>

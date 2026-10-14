@@ -1,3 +1,4 @@
+import ExternalLink from '@/components/externalLink/ExternalLink'
 import { textLink } from '@/styles/shared.css'
 import {
   footerBackgroundContainer,
@@ -14,23 +15,13 @@ const Footer = () => (
       <p className={footerText}>&copy; {currentYear} Harry Smith.</p>
       <p className={footerText}>
         Built with{' '}
-        <a
-          target="_blank"
-          href="https://vite.dev/"
-          rel="noreferrer"
-          className={footerLinkVite}
-        >
+        <ExternalLink href="https://vite.dev/" className={footerLinkVite}>
           Vite
-        </a>{' '}
+        </ExternalLink>{' '}
         and{' '}
-        <a
-          target="_blank"
-          href="https://react.dev/"
-          rel="noreferrer"
-          className={textLink}
-        >
+        <ExternalLink href="https://react.dev/" className={textLink}>
           React
-        </a>
+        </ExternalLink>
         .
       </p>
     </div>

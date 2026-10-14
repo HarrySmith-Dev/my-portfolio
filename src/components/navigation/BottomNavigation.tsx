@@ -11,10 +11,10 @@ import {
 import navigationLinksData from './navigationLinks'
 
 const BottomNavigation = () => (
-  <nav className={bottomNavigationContainer}>
+  <nav className={bottomNavigationContainer} aria-label="Main">
     <ul className={bottomNavigationLinksContainer}>
       {navigationLinksData.map(({ url, label, iconSrc }) => (
-        <li key={`${label}-bottom-navigation`}>
+        <li key={url}>
           <NavLink
             to={url}
             end={url === '/'}
