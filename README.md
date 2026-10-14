@@ -74,7 +74,7 @@ src/
 
 - **Imports:** use the `@/` alias for anything outside the current folder (`@/styles/shared`) and relative paths for files in the same folder (`./ProjectCard.css`).
 - **Styles:** each component has a `.css.ts` file next to it. Use the colours, spacing and fonts from `src/styles/shared.ts` and the shared styles in `src/styles/shared.css.ts` rather than hard-coding values.
-- **Projects:** add a project by adding an entry to `src/pages/projects/projectsData.ts`. Card images go in `src/assets/projects` as 16:7 WebP files (1280×560).
+- **Projects:** add a project by adding an entry to `src/pages/projects/projectsData.ts`. Card images go in `src/assets/projects` as 1200×630 WebP files, the same size as a link preview image, so a project's OG image can be used directly.
 - **Site URL:** the production URL is `SITE_URL` in `src/constants/site.ts`. If the domain changes, also update `index.html`, `public/robots.txt` and `public/sitemap.xml`. Add new routes to the sitemap.
 - **Content Security Policy:** set in `vercel.json`. If you add a service the browser talks to directly, add its domain there or it will be blocked.
 

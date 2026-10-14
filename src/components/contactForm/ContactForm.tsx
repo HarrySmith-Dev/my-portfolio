@@ -47,7 +47,6 @@ const ContactForm = () => {
     if (feedback) dialogRef.current?.showModal()
   }, [feedback])
 
-  // Runs when the dialog closes, from the Close button or Escape
   const onDialogClose = () => {
     setFeedback(null)
     setFocus('name')

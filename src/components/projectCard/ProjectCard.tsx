@@ -27,8 +27,8 @@ const ProjectCard = ({
         className={projectCardImage}
         src={imageSrc}
         alt={imageAlt}
-        width={1280}
-        height={560}
+        width={1200}
+        height={630}
         loading="lazy"
       />
     )}

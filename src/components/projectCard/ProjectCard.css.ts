@@ -14,7 +14,6 @@ export const projectCardContainer = style({
   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
 
   selectors: {
-    // Only cards with a title link are clickable
     '&:has(a[data-card-link]):hover': {
       transform: 'translateY(-4px)',
       boxShadow: shadows.cardHover,
@@ -39,9 +38,8 @@ export const projectCardContainer = style({
 
 export const projectCardImage = style({
   width: '100%',
-  // Overrides the height attribute so aspectRatio controls the height
   height: 'auto',
-  aspectRatio: '16 / 7',
+  aspectRatio: '1200 / 630',
   objectFit: 'cover',
   display: 'block',
 })
@@ -67,7 +65,6 @@ export const projectCardTitle = style({
   },
 })
 
-// Stretches the title link over the whole card so any part of it is clickable
 export const projectCardTitleLink = style({
   color: 'inherit',
   textDecoration: 'none',
@@ -117,7 +114,6 @@ export const projectCardLinks = style({
 })
 
 export const projectCardLink = style({
-  // Sits above the stretched title link so it stays separately clickable
   position: 'relative',
   zIndex: 1,
   fontSize: typography.fontSize.md,

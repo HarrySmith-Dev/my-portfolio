@@ -11,7 +11,6 @@ export type ProjectLink = {
 
 export type ProjectData = {
   title: string
-  // Where the card itself links to, usually the live site
   url?: string
   description: string
   techStack: string[]

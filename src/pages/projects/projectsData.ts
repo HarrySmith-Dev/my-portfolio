@@ -15,8 +15,6 @@ const projectsData: ProjectData[] = [
       },
     ],
     imageSrc: GlutenFreeAndMeImage,
-    imageAlt:
-      'Gluten Free & Me home page, showing a map of central London next to an introduction to coeliac disease',
   },
 ]
 

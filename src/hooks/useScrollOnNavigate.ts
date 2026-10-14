@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-// Start each new page at the top, unless the URL points at a section
 export const useScrollOnNavigate = () => {
   const { hash, key } = useLocation()
 

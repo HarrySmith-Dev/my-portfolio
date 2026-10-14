@@ -10,7 +10,6 @@ import NotFound from './pages/notFound/NotFound'
 import Projects from './pages/projects/Projects'
 import { mainContent, skipLink } from './styles/shared.css'
 
-// EmailJS and react-hook-form are only needed on this page
 const Contact = lazy(() => import('./pages/contact/Contact'))
 
 const App = () => {
