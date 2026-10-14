@@ -1,7 +1,7 @@
 import ContactIcon from '../../assets/ContactIcon.svg'
 import HomeIcon from '../../assets/HomeIcon.svg'
 import ProjectsIcon from '../../assets/ProjectsIcon.svg'
-import type { NavigationLinksData } from '../types/SharedTypes'
+import type { NavigationLinksData } from '../../types/SharedTypes'
 
 const navigationLinksData: NavigationLinksData[] = [
   {

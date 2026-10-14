@@ -1,7 +1,7 @@
 import { globalStyle } from '@vanilla-extract/css'
 import { colors, typography } from './shared'
 
-globalStyle('html, body, #main', {
+globalStyle('html, body, #root', {
   height: '100%',
   scrollBehavior: 'smooth',
 })
@@ -17,6 +17,10 @@ globalStyle('body', {
 
 globalStyle('*, *::before, *::after', {
   boxSizing: 'border-box',
+})
+
+globalStyle('input, textarea, button, select', {
+  font: 'inherit',
 })
 
 export const mobileBreakpoint = `screen and (min-width: 600px)`

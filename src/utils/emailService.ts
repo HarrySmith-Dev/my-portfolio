@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser'
 
-import type { FormInput } from '../components/contactForm/ContactForm'
+import type { FormInput } from '../types/SharedTypes'
 
 let isEmailJsInitialized = false
 
@@ -40,7 +40,6 @@ export const sendContactEmail = async (data: FormInput) => {
   try {
     return await emailjs.send(serviceId, templateId, templateParams)
   } catch (error) {
-    console.error('Failed to send contact email', error)
-    throw new Error('Unable to send message right now. Please try again later.')
+    throw new Error('Unable to send message right now.', { cause: error })
   }
 }

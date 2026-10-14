@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-import { colors, typography } from '../../styles/shared'
+import { colors, layout, typography } from '../../styles/shared'
 import { desktopBreakpoint } from '../../styles/global.css'
 
 export const navigationContainer = style({
@@ -8,7 +8,7 @@ export const navigationContainer = style({
 
   '@media': {
     [desktopBreakpoint]: {
-      maxWidth: '1024px',
+      maxWidth: layout.pageMaxWidth,
       marginTop: '70px',
     },
   },
@@ -67,7 +67,6 @@ export const navigationLinkTextContainer = style({
 export const navigationLinkText = style({
   margin: 0,
   fontSize: typography.fontSize.xxl,
-  fontFamily: typography.fontFamilyBase,
   color: colors.slate800,
   padding: 0,
   fontWeight: 500,
@@ -108,13 +107,12 @@ export const navigationLinks = style({
 })
 
 export const navigationLabel = style({
-  fontFamily: typography.fontFamilyBase,
   fontSize: typography.fontSize.lg,
   letterSpacing: 0,
   lineHeight: typography.lineHeight.normal,
   cursor: 'pointer',
   margin: 0,
-  color: colors.slate500,
+  color: colors.slate600,
 
   selectors: {
     '&:hover': {

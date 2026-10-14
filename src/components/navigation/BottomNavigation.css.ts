@@ -45,10 +45,17 @@ export const bottomNavigationContentContainer = style({
 
 export const bottomNavigationLinks = style({
   fontSize: typography.fontSize.md,
-  fontFamily: typography.fontFamilyBase,
   color: colors.slate700,
   margin: spacing.none,
 })
+
+export const bottomNavigationLinksActive = style([
+  bottomNavigationLinks,
+  {
+    color: colors.brandPrimary,
+    fontWeight: 500,
+  },
+])
 
 export const bottomNavigationIcon = style({
   width: '25px',

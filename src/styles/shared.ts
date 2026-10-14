@@ -2,7 +2,7 @@ export const colors = {
   white: '#FFFFFF',
   blueGray50: '#F0F3FA',
 
-  slate500: '#64748B',
+  slate600: '#475569',
   slate700: '#334155',
   slate800: '#1E293B',
 
@@ -10,17 +10,17 @@ export const colors = {
   blueGray200: '#CBD5E1',
 
   blackAlpha50: '#00000080',
-  danger: '#FF0000',
+  danger: '#C81E1E',
 
-  brandPrimary: '#0285C7',
-  brandVite: '#646CFF',
+  brandPrimary: '#0369A1',
+  brandVite: '#535BF2',
   brandReact: '#61DAFB',
   brandTypeScript: '#3178C6',
   brandAws: '#FF9900',
 }
 
 export const typography = {
-  fontFamilyBase: 'Jost, sans-serif',
+  fontFamilyBase: "'Jost Variable', sans-serif",
   fontSize: {
     xs: '14px',
     sm: '16px',
@@ -51,5 +51,10 @@ export const spacing = {
 
 export const shadows = {
   card: `0 20px 25px -5px ${colors.grayLight}`,
+  cardHover: `0 28px 35px -5px ${colors.blueGray200}`,
   bottomNav: '0 -6px 24px -16px rgba(30, 41, 59, 0.35)',
+}
+
+export const layout = {
+  pageMaxWidth: '1024px',
 }

@@ -10,7 +10,6 @@ export const feedbackWrapper = style({
 })
 
 export const feedbackHeader = style({
-  fontFamily: typography.fontFamilyBase,
   fontSize: typography.fontSize.lg,
   lineHeight: typography.lineHeight.tight,
   color: colors.slate800,
@@ -19,7 +18,6 @@ export const feedbackHeader = style({
 })
 
 export const feedbackText = style({
-  fontFamily: typography.fontFamilyBase,
   fontSize: typography.fontSize.md,
   lineHeight: typography.lineHeight.normal,
   color: colors.slate800,
